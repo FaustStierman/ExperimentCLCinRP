@@ -1,27 +1,59 @@
-<experiment>
-   <common>
-      truncateLists= 1
-      edWebServerVersion= v2020.9
-      edWebVersion= v2022.01
-      redirectURL= 
-   </common>
-   <userdata>
-      <udglobal>
-         Enabled= 1
-      </udglobal>
-      <udparams>
-         Type= Integer
-         Variable= subject
-         Question= Subject number
-         Min= 1
-         Max= 10000
-         DefaultValue= 
-      </udparams>
-   </userdata>
-   <resultHeaders>
+package experiment;
 
-   </resultHeaders>
-   <global>
+import edrun.engine.*;
+import edrun.engine.controls.*;
+import edrun.engine.controls.recordDevice.*;
+import edrun.engine.controls.recordDevice.IRecord.*;
+import edrun.engine.controls.recordDevice.IVURecord.*;
+import edrun.engine.controls.soundDevice.*;
+import edrun.engine.controls.soundDevice.ISound.*;
+import edrun.engine.controls.videoDevice.*;
+import edrun.engine.controls.videoDevice.IVideo.*;
+import edrun.engine.controls.eyeTracking.*;
+import edrun.engine.graphics.*;
+import edrun.engine.graphics.Graphics;
+import edrun.engine.graphics.IGraphics.*;
+import edrun.engine.userdata.*;
+import edrun.engine.utils.*;
+import edrun.engine.Events.*;
+import edrun.engine.Test.Test;
+import eventbox.EventBox;
+import eyetracking.tobii.*;
+import eyetracking.tobii.Tobii.*;
+import eyetracking.tobii.TobiiData.*;
+import java.awt.*;
+import java.util.*;
+
+public class Exp1 extends ExperimentBuild
+{
+   public static void main(String[] args)
+   {
+        Thread.currentThread().setPriority(Thread.MAX_PRIORITY);
+        new Exp1().run();
+   }
+
+   public void run()
+   {
+      try
+      {
+         new Init();
+         UserData userData= new UserData("[Type=Integer;Variable=subject;Question=Subject number;Min=1;Max=10000;DefaultValue=]");
+         this.setTruncateListsEnabled(true);
+         if (this.setup(this, "Exp1", userData))
+         {
+             this.setSelectedResultHeaders("");
+             this.startExperiment();
+         }
+      }
+      catch(Exception ex)
+      {
+		 this.showError(ex);
+		 this.exit();
+      }
+   }
+
+class Globals
+{
 int setsCompleted = 0; 
 
 int itemInSet = 1;
@@ -31,9 +63,16 @@ String currentSet;
 int seed = Tools.getRandomNumber(1, 3); 
 
 String currentItem; 
+    public Globals(IGraphics graphics) throws Exception
+    {
+    }
 
-   </global>
-   <init>
+}
+
+class Init extends Graphics
+{
+   public Init() throws Exception
+   {
 setGraphicsDriver(GraphicsDriver.OPENGL_NVG);
 
 //setFullScreen(true);
@@ -50,17 +89,31 @@ SoundControl.setSoundDriver(SoundDriver.JAVA_SOUND); //Multiplatform, preferable
 //SoundControl.setDeviceIndex(10); //For PortAudio --> only needed for specific device within same host, see ED->Tools->Sound->Configure->PortAudio Device IDs
 
 Debug.setDebugAction(Debug.DebugAction.USER); //NONE, USER, INTERNAL, USER_INTERNAL
+   }
+}
 
-   </init>
-   <close>
+@Override
+public void close() throws Exception
+{
 
-   </close>
-   <pages>
-      <page>
-         <pageParams>
-            Name= ID
-         </pageParams>
-         <pageControls>
+}
+
+class Page_ID extends Page
+{
+   Globals globals;
+   UserList parent;
+   TextControl text2;
+   Page_ID(ExperimentBuild experiment, UserList parent, Globals globals)
+   {
+      super("ID", experiment, parent);
+      this.globals = globals;
+      this.parent = parent;
+      this.pageParent = this;
+   }
+
+   @Override
+   public void load() throws Exception
+   {
 this.setDuration(-1);
 this.setKeyboard("{SPACE}");
 this.setKeyboardCanEndPage(true);
@@ -70,7 +123,7 @@ this.setValidClicksOnly(true);
 this.setBackColor(Color.GRAY);
 this.setTransparent(false);
 
-TextControl text2= new TextControl("text2");
+text2 = new TextControl("text2");
 text2.setText("ID");
 //text2.setText(this.globals.allText.get("instr1Text"));
 text2.setText(String.join("\n",
@@ -93,15 +146,25 @@ text2.setDrawBackColorNarrow(false);
 text2.setBackColorMarginHorizVert(0, 0);
 text2.setValidClick(false);
 this.addControl(text2);
+   }
+}
 
+class Page_consent extends Page
+{
+   Globals globals;
+   UserList parent;
+   TextControl text1;
+   Page_consent(ExperimentBuild experiment, UserList parent, Globals globals)
+   {
+      super("consent", experiment, parent);
+      this.globals = globals;
+      this.parent = parent;
+      this.pageParent = this;
+   }
 
-         </pageControls>
-      </page>
-      <page>
-         <pageParams>
-            Name= consent
-         </pageParams>
-         <pageControls>
+   @Override
+   public void load() throws Exception
+   {
 this.setDuration(-1);
 this.setKeyboard("{SPACE}");
 this.setKeyboardCanEndPage(true);
@@ -111,7 +174,7 @@ this.setValidClicksOnly(true);
 this.setBackColor(Color.GRAY);
 this.setTransparent(false);
 
-TextControl text1= new TextControl("text1");
+text1 = new TextControl("text1");
 text1.setText("Consent");
 //text1.setText(this.globals.allText.get("instr1Text"));
 text1.setText(String.join("\n",
@@ -134,15 +197,25 @@ text1.setDrawBackColorNarrow(false);
 text1.setBackColorMarginHorizVert(0, 0);
 text1.setValidClick(false);
 this.addControl(text1);
+   }
+}
 
+class Page_geslacht extends Page
+{
+   Globals globals;
+   UserList parent;
+   TextControl text3;
+   Page_geslacht(ExperimentBuild experiment, UserList parent, Globals globals)
+   {
+      super("geslacht", experiment, parent);
+      this.globals = globals;
+      this.parent = parent;
+      this.pageParent = this;
+   }
 
-         </pageControls>
-      </page>
-      <page>
-         <pageParams>
-            Name= geslacht
-         </pageParams>
-         <pageControls>
+   @Override
+   public void load() throws Exception
+   {
 this.setDuration(-1);
 this.setKeyboard("{SPACE}");
 this.setKeyboardCanEndPage(true);
@@ -152,7 +225,7 @@ this.setValidClicksOnly(true);
 this.setBackColor(Color.GRAY);
 this.setTransparent(false);
 
-TextControl text3= new TextControl("text3");
+text3 = new TextControl("text3");
 text3.setText("Geslacht");
 //text3.setText(this.globals.allText.get("instr1Text"));
 text3.setText(String.join("\n",
@@ -175,15 +248,25 @@ text3.setDrawBackColorNarrow(false);
 text3.setBackColorMarginHorizVert(0, 0);
 text3.setValidClick(false);
 this.addControl(text3);
+   }
+}
 
+class Page_visie extends Page
+{
+   Globals globals;
+   UserList parent;
+   TextControl text4;
+   Page_visie(ExperimentBuild experiment, UserList parent, Globals globals)
+   {
+      super("visie", experiment, parent);
+      this.globals = globals;
+      this.parent = parent;
+      this.pageParent = this;
+   }
 
-         </pageControls>
-      </page>
-      <page>
-         <pageParams>
-            Name= visie
-         </pageParams>
-         <pageControls>
+   @Override
+   public void load() throws Exception
+   {
 this.setDuration(-1);
 this.setKeyboard("{SPACE}");
 this.setKeyboardCanEndPage(true);
@@ -193,7 +276,7 @@ this.setValidClicksOnly(true);
 this.setBackColor(Color.GRAY);
 this.setTransparent(false);
 
-TextControl text4= new TextControl("text4");
+text4 = new TextControl("text4");
 text4.setText("Visie");
 //text4.setText(this.globals.allText.get("instr1Text"));
 text4.setText(String.join("\n",
@@ -216,15 +299,25 @@ text4.setDrawBackColorNarrow(false);
 text4.setBackColorMarginHorizVert(0, 0);
 text4.setValidClick(false);
 this.addControl(text4);
+   }
+}
 
+class Page_kleurenblind extends Page
+{
+   Globals globals;
+   UserList parent;
+   TextControl text5;
+   Page_kleurenblind(ExperimentBuild experiment, UserList parent, Globals globals)
+   {
+      super("kleurenblind", experiment, parent);
+      this.globals = globals;
+      this.parent = parent;
+      this.pageParent = this;
+   }
 
-         </pageControls>
-      </page>
-      <page>
-         <pageParams>
-            Name= kleurenblind
-         </pageParams>
-         <pageControls>
+   @Override
+   public void load() throws Exception
+   {
 this.setDuration(-1);
 this.setKeyboard("{SPACE}");
 this.setKeyboardCanEndPage(true);
@@ -234,7 +327,7 @@ this.setValidClicksOnly(true);
 this.setBackColor(Color.GRAY);
 this.setTransparent(false);
 
-TextControl text5= new TextControl("text5");
+text5 = new TextControl("text5");
 text5.setText("Visie");
 //text5.setText(this.globals.allText.get("instr1Text"));
 text5.setText(String.join("\n",
@@ -257,15 +350,25 @@ text5.setDrawBackColorNarrow(false);
 text5.setBackColorMarginHorizVert(0, 0);
 text5.setValidClick(false);
 this.addControl(text5);
+   }
+}
 
+class Page_uitleg extends Page
+{
+   Globals globals;
+   UserList parent;
+   TextControl text6;
+   Page_uitleg(ExperimentBuild experiment, UserList parent, Globals globals)
+   {
+      super("uitleg", experiment, parent);
+      this.globals = globals;
+      this.parent = parent;
+      this.pageParent = this;
+   }
 
-         </pageControls>
-      </page>
-      <page>
-         <pageParams>
-            Name= uitleg
-         </pageParams>
-         <pageControls>
+   @Override
+   public void load() throws Exception
+   {
 this.setDuration(-1);
 this.setKeyboard("{SPACE}");
 this.setKeyboardCanEndPage(true);
@@ -275,7 +378,7 @@ this.setValidClicksOnly(true);
 this.setBackColor(Color.GRAY);
 this.setTransparent(false);
 
-TextControl text6= new TextControl("text6");
+text6 = new TextControl("text6");
 text6.setText("uitleg");
 //text6.setText(this.globals.allText.get("instr1Text"));
 text6.setText(String.join("\n",
@@ -298,15 +401,25 @@ text6.setDrawBackColorNarrow(false);
 text6.setBackColorMarginHorizVert(0, 0);
 text6.setValidClick(false);
 this.addControl(text6);
+   }
+}
 
+class Page_oefenvoorbeeld extends Page
+{
+   Globals globals;
+   UserList parent;
+   TextControl text7;
+   Page_oefenvoorbeeld(ExperimentBuild experiment, UserList parent, Globals globals)
+   {
+      super("oefenvoorbeeld", experiment, parent);
+      this.globals = globals;
+      this.parent = parent;
+      this.pageParent = this;
+   }
 
-         </pageControls>
-      </page>
-      <page>
-         <pageParams>
-            Name= oefenvoorbeeld
-         </pageParams>
-         <pageControls>
+   @Override
+   public void load() throws Exception
+   {
 this.setDuration(-1);
 this.setKeyboard("{SPACE}");
 this.setKeyboardCanEndPage(true);
@@ -316,7 +429,7 @@ this.setValidClicksOnly(true);
 this.setBackColor(Color.GRAY);
 this.setTransparent(false);
 
-TextControl text7= new TextControl("text7");
+text7 = new TextControl("text7");
 text7.setText("oefenvoorbeeld");
 //text7.setText(this.globals.allText.get("instr1Text"));
 text7.setText(String.join("\n",
@@ -339,15 +452,22 @@ text7.setDrawBackColorNarrow(false);
 text7.setBackColorMarginHorizVert(0, 0);
 text7.setValidClick(false);
 this.addControl(text7);
+   }
+}
 
+class Code_preTrail extends Code
+{
+   Globals globals;
+   Code_preTrail(ExperimentBuild experiment, UserList parent, Globals globals)
+   {
+      super("preTrail", experiment, parent);
+      this.globals = globals;
+      this.pageParent = this;
+   }
 
-         </pageControls>
-      </page>
-      <code>
-         <codeParams>
-            Name= preTrail
-         </codeParams>
-         <codeText>
+   @Override
+   public void load() throws Exception
+   {
 
 
 if (Tools.modEquals(this.globals.seed + this.globals.setsCompleted, 3, 0)){
@@ -364,14 +484,25 @@ else if (Tools.modEquals(this.globals.seed + this.globals.setsCompleted, 3, 2)){
 	this.globals.currentItem = "iconisch" + String.format("%d", this.globals.itemInSet);
 	
 }
+   }
+}
 
-         </codeText>
-      </code>
-      <page>
-         <pageParams>
-            Name= testItemN
-         </pageParams>
-         <pageControls>
+class Page_testItemN extends Page
+{
+   Globals globals;
+   UserList parent;
+   PictureControl picture1;
+   Page_testItemN(ExperimentBuild experiment, UserList parent, Globals globals)
+   {
+      super("testItemN", experiment, parent);
+      this.globals = globals;
+      this.parent = parent;
+      this.pageParent = this;
+   }
+
+   @Override
+   public void load() throws Exception
+   {
 this.setDuration(-1);
 this.setKeyboard("zm");
 this.setKeyboardCanEndPage(true);
@@ -381,7 +512,7 @@ this.setValidClicksOnly(true);
 this.setBackColor(Color.GRAY);
 this.setTransparent(false);
 
-PictureControl picture1= new PictureControl("picture1");
+picture1 = new PictureControl("picture1");
 picture1.setPicture("pics/" + this.globals.currentItem + ".bmp");
 picture1.setX(0.5);
 picture1.setY(0.5);
@@ -396,16 +527,22 @@ picture1.setBorderColor(Color.BLUE);
 picture1.setZOrder(10);
 picture1.setValidClick(false);
 this.addControl(picture1);
+   }
+}
 
+class Code_code2 extends Code
+{
+   Globals globals;
+   Code_code2(ExperimentBuild experiment, UserList parent, Globals globals)
+   {
+      super("code2", experiment, parent);
+      this.globals = globals;
+      this.pageParent = this;
+   }
 
-
-         </pageControls>
-      </page>
-      <code>
-         <codeParams>
-            Name= code2
-         </codeParams>
-         <codeText>
+   @Override
+   public void load() throws Exception
+   {
 this.globals.itemInSet += 1; 
 
 if(Tools.equals(this.globals.itemInSet, 8))
@@ -430,13 +567,25 @@ if(Tools.equals(this.globals.itemInSet, 8))
 else{
 	this.jumpTo("preTrail");
 }
-         </codeText>
-      </code>
-      <page>
-         <pageParams>
-            Name= einde
-         </pageParams>
-         <pageControls>
+   }
+}
+
+class Page_einde extends Page
+{
+   Globals globals;
+   UserList parent;
+   TextControl text8;
+   Page_einde(ExperimentBuild experiment, UserList parent, Globals globals)
+   {
+      super("einde", experiment, parent);
+      this.globals = globals;
+      this.parent = parent;
+      this.pageParent = this;
+   }
+
+   @Override
+   public void load() throws Exception
+   {
 this.setDuration(-1);
 this.setKeyboard("{SPACE}");
 this.setKeyboardCanEndPage(true);
@@ -446,7 +595,7 @@ this.setValidClicksOnly(true);
 this.setBackColor(Color.GRAY);
 this.setTransparent(false);
 
-TextControl text8= new TextControl("text8");
+text8 = new TextControl("text8");
 //text8.setText("");
 //text8.setText(this.globals.allText.get("instr1Text"));
 
@@ -470,9 +619,34 @@ text8.setDrawBackColorNarrow(false);
 text8.setBackColorMarginHorizVert(0, 0);
 text8.setValidClick(false);
 this.addControl(text8);
+   }
+}
 
+Globals globals;
 
-         </pageControls>
-      </page>
-   </pages>
-</experiment>
+@Override
+public void createExperiment() throws Exception
+{
+this.setPageColor(Color.WHITE);
+globals= new Globals(this.graphics);
+flow.addPage(new Page_ID(this, null, globals));
+flow.addPage(new Page_consent(this, null, globals));
+flow.addPage(new Page_geslacht(this, null, globals));
+flow.addPage(new Page_visie(this, null, globals));
+flow.addPage(new Page_kleurenblind(this, null, globals));
+flow.addPage(new Page_uitleg(this, null, globals));
+flow.addPage(new Page_oefenvoorbeeld(this, null, globals));
+flow.addCode(new Code_preTrail(this, null, globals));
+flow.addPage(new Page_testItemN(this, null, globals));
+flow.addCode(new Code_code2(this, null, globals));
+flow.addPage(new Page_einde(this, null, globals));
+}
+
+@Override
+public void preloadFonts() throws Exception
+{
+FontPreload fontPreload = new FontPreload();
+fontPreload.addFont("Roboto-Regular");
+this.graphics.preloadFonts(fontPreload);
+}
+}

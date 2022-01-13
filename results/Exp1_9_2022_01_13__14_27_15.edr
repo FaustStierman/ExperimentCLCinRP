@@ -1,0 +1,72 @@
+subject	code2.end	code2.offset	code2.onset	code2.start	consent.end	consent.endType	consent.keyPressed	consent.offset	consent.onset	consent.rt	consent.start	consent.text1.text	geslacht.end	geslacht.endType	geslacht.keyPressed	geslacht.offset	geslacht.onset	geslacht.rt	geslacht.start	geslacht.text3.text	ID.end	ID.endType	ID.keyPressed	ID.offset	ID.onset	ID.rt	ID.start	ID.text2.text	kleurenblind.end	kleurenblind.endType	kleurenblind.keyPressed	kleurenblind.offset	kleurenblind.onset	kleurenblind.rt	kleurenblind.start	kleurenblind.text5.text	oefenvoorbeeld.end	oefenvoorbeeld.endType	oefenvoorbeeld.keyPressed	oefenvoorbeeld.offset	oefenvoorbeeld.onset	oefenvoorbeeld.rt	oefenvoorbeeld.start	oefenvoorbeeld.text7.text	preTrail.end	preTrail.offset	preTrail.onset	preTrail.start	testItemN.end	testItemN.endType	testItemN.keyPressed	testItemN.offset	testItemN.onset	testItemN.picture1.picture	testItemN.rt	testItemN.start	uitleg.end	uitleg.endType	uitleg.keyPressed	uitleg.offset	uitleg.onset	uitleg.rt	uitleg.start	uitleg.text6.text	visie.end	visie.endType	visie.keyPressed	visie.offset	visie.onset	visie.rt	visie.start	visie.text4.text	
+9																					5327	KEYPRESSED	{SPACE}	5327	4646	681	4630	ID																																													
+9					5525	KEYPRESSED	{SPACE}	5525	5329	196	5327	Consent																																																													
+9													5675	KEYPRESSED	{SPACE}	5675	5529	146	5525	Geslacht																																																					
+9																																																																	5843	KEYPRESSED	{SPACE}	5843	5679	164	5675	Visie	
+9																													5990	KEYPRESSED	{SPACE}	5990	5846	144	5843	Kleurenblind																																					
+9																																																									6146	KEYPRESSED	{SPACE}	6146	5996	150	5990	Uitleg									
+9																																					6328	KEYPRESSED	{SPACE}	6328	6163	165	6146	OefenVoorbeeld																													
+9																																													6328	6328	6328	6328																									
+9																																																	7399	KEYPRESSED	m	7399	6346	pics/controle1.bmp	1053	6328																	
+9	7400	7400	7399	7399																																																																					
+9																																													7400	7400	7400	7400																									
+9																																																	7587	KEYPRESSED	m	7586	7412	pics/controle2.bmp	174	7400																	
+9	7587	7587	7587	7587																																																																					
+9																																													7587	7587	7587	7587																									
+9																																																	7743	KEYPRESSED	m	7743	7596	pics/controle3.bmp	147	7587																	
+9	7743	7743	7743	7743																																																																					
+9																																													7744	7744	7743	7743																									
+9																																																	7900	KEYPRESSED	m	7900	7762	pics/controle4.bmp	138	7744																	
+9	7900	7900	7900	7900																																																																					
+9																																													7900	7900	7900	7900																									
+9																																																	8043	KEYPRESSED	m	8043	7912	pics/controle5.bmp	131	7900																	
+9	8043	8043	8043	8043																																																																					
+9																																													8043	8043	8043	8043																									
+9																																																	8201	KEYPRESSED	m	8201	8062	pics/controle6.bmp	139	8043																	
+9	8201	8201	8201	8201																																																																					
+9																																													8201	8201	8201	8201																									
+9																																																	8363	KEYPRESSED	m	8362	8213	pics/controle7.bmp	149	8201																	
+9	8363	8363	8363	8363																																																																					
+9																																													8363	8363	8363	8363																									
+9																																																	9154	KEYPRESSED	m	9154	8379	pics/abstract1.bmp	775	8363																	
+9	9155	9155	9155	9155																																																																					
+9																																													9155	9155	9155	9155																									
+9																																																	9347	KEYPRESSED	m	9347	9163	pics/abstract2.bmp	184	9155																	
+9	9347	9347	9347	9347																																																																					
+9																																													9347	9347	9347	9347																									
+9																																																	9514	KEYPRESSED	m	9513	9363	pics/abstract3.bmp	150	9347																	
+9	9514	9514	9514	9514																																																																					
+9																																													9514	9514	9514	9514																									
+9																																																	9685	KEYPRESSED	m	9685	9529	pics/abstract4.bmp	156	9514																	
+9	9686	9686	9686	9686																																																																					
+9																																													9686	9686	9686	9686																									
+9																																																	9878	KEYPRESSED	m	9878	9696	pics/abstract5.bmp	182	9686																	
+9	9878	9878	9878	9878																																																																					
+9																																													9878	9878	9878	9878																									
+9																																																	10073	KEYPRESSED	m	10073	9896	pics/abstract6.bmp	177	9878																	
+9	10073	10073	10073	10073																																																																					
+9																																													10073	10073	10073	10073																									
+9																																																	10294	KEYPRESSED	m	10294	10080	pics/abstract7.bmp	214	10073																	
+9	10295	10295	10294	10294																																																																					
+9																																													10295	10295	10295	10295																									
+9																																																	10869	KEYPRESSED	m	10869	10313	pics/iconisch1.bmp	556	10295																	
+9	10869	10869	10869	10869																																																																					
+9																																													10869	10869	10869	10869																									
+9																																																	11056	KEYPRESSED	m	11056	10879	pics/iconisch2.bmp	177	10869																	
+9	11056	11056	11056	11056																																																																					
+9																																													11056	11056	11056	11056																									
+9																																																	11244	KEYPRESSED	m	11244	11063	pics/iconisch3.bmp	181	11056																	
+9	11244	11244	11244	11244																																																																					
+9																																													11245	11245	11244	11244																									
+9																																																	11468	KEYPRESSED	m	11468	11262	pics/iconisch4.bmp	206	11245																	
+9	11468	11468	11468	11468																																																																					
+9																																													11468	11468	11468	11468																									
+9																																																	11684	KEYPRESSED	m	11684	11479	pics/iconisch5.bmp	205	11468																	
+9	11684	11684	11684	11684																																																																					
+9																																													11685	11685	11684	11684																									
+9																																																	11887	KEYPRESSED	m	11887	11696	pics/iconisch6.bmp	191	11685																	
+9	11887	11887	11887	11887																																																																					
+9																																													11887	11887	11887	11887																									
+9																																																	12068	KEYPRESSED	m	12068	11896	pics/iconisch7.bmp	172	11887																	
+9	12068	12068	12068	12068																																																																					
+9																																													12068	12068	12068	12068																									

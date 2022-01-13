@@ -1,0 +1,8 @@
+Windows:
+https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2021-08-20-12-22/ffmpeg-N-103299-gc83a7dd25f-win64-gpl.zip
+
+Linux:
+https://johnvansickle.com/ffmpeg/builds/ffmpeg-git-amd64-static.tar.xz
+
+Mac:
+https://evermeet.cx/ffmpeg/ffmpeg-4.4.7z

@@ -1,0 +1,1 @@
+start javaw -cp ".;./lib/*;./lib/graphics/lwjglnvg/*;./lib/sounds/*;./lib/sounds/asio/*;./lib/sounds/portaudio/*;./lib/eventbox/*;./lib/eyetracking/*;./lib/videos/*" experiment.Exp1

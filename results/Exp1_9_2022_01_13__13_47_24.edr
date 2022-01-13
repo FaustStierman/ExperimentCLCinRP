@@ -1,0 +1,24 @@
+subject	code2.end	code2.offset	code2.onset	code2.start	consent.end	consent.endType	consent.keyPressed	consent.offset	consent.onset	consent.rt	consent.start	consent.text1.text	geslacht.end	geslacht.endType	geslacht.keyPressed	geslacht.offset	geslacht.onset	geslacht.rt	geslacht.start	geslacht.text3.text	ID.end	ID.endType	ID.keyPressed	ID.offset	ID.onset	ID.rt	ID.start	ID.text2.text	kleurenblind.end	kleurenblind.endType	kleurenblind.keyPressed	kleurenblind.offset	kleurenblind.onset	kleurenblind.rt	kleurenblind.start	kleurenblind.text5.text	oefenvoorbeeld.end	oefenvoorbeeld.endType	oefenvoorbeeld.keyPressed	oefenvoorbeeld.offset	oefenvoorbeeld.onset	oefenvoorbeeld.rt	oefenvoorbeeld.start	oefenvoorbeeld.text7.text	preTrail.end	preTrail.offset	preTrail.onset	preTrail.start	testItemN.end	testItemN.endType	testItemN.keyPressed	testItemN.offset	testItemN.onset	testItemN.picture1.picture	testItemN.rt	testItemN.start	uitleg.end	uitleg.endType	uitleg.keyPressed	uitleg.offset	uitleg.onset	uitleg.rt	uitleg.start	uitleg.text6.text	visie.end	visie.endType	visie.keyPressed	visie.offset	visie.onset	visie.rt	visie.start	visie.text4.text	
+9																					4918	KEYPRESSED	{SPACE}	4917	3603	1314	3586																																														
+9					5728	KEYPRESSED	{SPACE}	5727	4936	791	4918																																																														
+9													6459	KEYPRESSED	{SPACE}	6459	5735	724	5728																																																						
+9																																																																	7108	KEYPRESSED	{SPACE}	7108	6469	639	6459		
+9																													7695	KEYPRESSED	{SPACE}	7695	7119	576	7108																																						
+9																																																									8325	KEYPRESSED	{SPACE}	8325	7702	623	7695										
+9																																					8902	KEYPRESSED	{SPACE}	8902	8335	567	8325																														
+9																																													8903	8903	8903	8903																									
+9																																																	16897	KEYPRESSED	m	16897	8936	pics/controle1.bmp	7961	8903																	
+9	16897	16897	16897	16897																																																																					
+9																																													16898	16898	16897	16897																									
+9																																																	17580	KEYPRESSED	m	17580	16919	pics/controle2.bmp	661	16898																	
+9	17580	17580	17580	17580																																																																					
+9																																													17580	17580	17580	17580																									
+9																																																	18729	KEYPRESSED	z	18729	17586	pics/controle3.bmp	1143	17580																	
+9	18729	18729	18729	18729																																																																					
+9																																													18729	18729	18729	18729																									
+9																																																	19047	KEYPRESSED	m	19047	18736	pics/controle4.bmp	311	18729																	
+9	19048	19048	19048	19048																																																																					
+9																																													19048	19048	19048	19048																									
+9																																																	19320	KEYPRESSED	z	19320	19052	pics/controle5.bmp	268	19048																	
+9	19320	19320	19320	19320																																																																					
+9																																													19320	19320	19320	19320																									
