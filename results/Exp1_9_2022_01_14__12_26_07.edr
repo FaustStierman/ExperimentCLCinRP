@@ -1,0 +1,34 @@
+subject	code2.end	code2.offset	code2.onset	code2.start	fixatieKruis.end	fixatieKruis.endType	fixatieKruis.offset	fixatieKruis.onset	fixatieKruis.picture4.picture	fixatieKruis.rt	fixatieKruis.start	preTrail.end	preTrail.offset	preTrail.onset	preTrail.start	testItemN.end	testItemN.endType	testItemN.keyPressed	testItemN.offset	testItemN.onset	testItemN.picture1.picture	testItemN.rt	testItemN.start	voorbeelden.afbeelding	voorbeelden.fileName	voorbeelden.index	voorbeelden.toonVoorbeeld.end	voorbeelden.toonVoorbeeld.endType	voorbeelden.toonVoorbeeld.keyPressed	voorbeelden.toonVoorbeeld.offset	voorbeelden.toonVoorbeeld.onset	voorbeelden.toonVoorbeeld.picture2.picture	voorbeelden.toonVoorbeeld.rt	voorbeelden.toonVoorbeeld.start	voorbeelden.toonVoorbeeld.text11.text	voorbeelden.toonVoorbeeld.text9.text	
+9																								voorbeeld1	lists/voorbeelden.tsv	1	6736	KEYPRESSED	{RIGHT}	6735	3495	pics/voorbeeld1.bmp	3240	3481	A of <-        ...	Match deze kleu...	
+9																								voorbeeld2		2	7394	KEYPRESSED	{RIGHT}	7394	6744	pics/voorbeeld2.bmp	650	6736	A of <-        ...	Match deze kleu...	
+9																								voorbeeld3		3	7790	KEYPRESSED	{RIGHT}	7790	7399	pics/voorbeeld3.bmp	391	7395	A of <-        ...	Match deze kleu...	
+9												7791	7791	7791	7791																						
+9					8296	DURATION	8296	7796	pics/fixatieKruis.bmp	-1	7791																										
+9																9037	KEYPRESSED	{RIGHT}	9036	8300	pics/iconisch1.bmp	736	8296														
+9	9037	9037	9037	9037																																	
+9												9037	9037	9037	9037																						
+9					9541	DURATION	9541	9041	pics/fixatieKruis.bmp	-1	9037																										
+9																10172	KEYPRESSED	{RIGHT}	10172	9545	pics/iconisch2.bmp	627	9541														
+9	10172	10172	10172	10172																																	
+9												10172	10172	10172	10172																						
+9					10676	DURATION	10676	10176	pics/fixatieKruis.bmp	-1	10172																										
+9																11243	KEYPRESSED	{RIGHT}	11243	10681	pics/iconisch3.bmp	562	10676														
+9	11243	11243	11243	11243																																	
+9												11243	11243	11243	11243																						
+9					11747	DURATION	11747	11247	pics/fixatieKruis.bmp	-1	11244																										
+9																12492	KEYPRESSED	{RIGHT}	12492	11750	pics/iconisch4.bmp	742	11747														
+9	12492	12492	12492	12492																																	
+9												12492	12492	12492	12492																						
+9					12996	DURATION	12996	12496	pics/fixatieKruis.bmp	-1	12492																										
+9																13490	KEYPRESSED	{RIGHT}	13490	12999	pics/iconisch5.bmp	491	12996														
+9	13490	13490	13490	13490																																	
+9												13491	13491	13490	13490																						
+9					13995	DURATION	13995	13495	pics/fixatieKruis.bmp	-1	13491																										
+9																14476	KEYPRESSED	{RIGHT}	14476	13999	pics/iconisch6.bmp	477	13995														
+9	14476	14476	14476	14476																																	
+9												14476	14476	14476	14476																						
+9					14979	DURATION	14979	14479	pics/fixatieKruis.bmp	-1	14476																										
+9																15555	KEYPRESSED	{RIGHT}	15555	14982	pics/iconisch7.bmp	573	14979														
+9	15555	15555	15555	15555																																	
+9												15556	15556	15555	15555																						
+9					16060	DURATION	16060	15560	pics/fixatieKruis.bmp	-1	15556																										

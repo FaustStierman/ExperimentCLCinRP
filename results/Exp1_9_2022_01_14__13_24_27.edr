@@ -1,0 +1,93 @@
+subject	code2.end	code2.offset	code2.onset	code2.start	consent.end	consent.endType	consent.keyPressed	consent.offset	consent.onset	consent.rt	consent.start	fixatieKruis.end	fixatieKruis.endType	fixatieKruis.offset	fixatieKruis.onset	fixatieKruis.picture4.picture	fixatieKruis.rt	fixatieKruis.start	preTrail.end	preTrail.offset	preTrail.onset	preTrail.start	startTrail.end	startTrail.endType	startTrail.keyPressed	startTrail.offset	startTrail.onset	startTrail.rt	startTrail.start	startTrail.text12.text	testItemN.end	testItemN.endType	testItemN.keyPressed	testItemN.offset	testItemN.onset	testItemN.picture1.picture	testItemN.rt	testItemN.start	uitleg.end	uitleg.endType	uitleg.keyPressed	uitleg.offset	uitleg.onset	uitleg.picture5.picture	uitleg.rt	uitleg.start	voorbeelden.afbeelding	voorbeelden.fileName	voorbeelden.index	voorbeelden.toonVoorbeeld.end	voorbeelden.toonVoorbeeld.endType	voorbeelden.toonVoorbeeld.keyPressed	voorbeelden.toonVoorbeeld.offset	voorbeelden.toonVoorbeeld.onset	voorbeelden.toonVoorbeeld.picture2.picture	voorbeelden.toonVoorbeeld.rt	voorbeelden.toonVoorbeeld.start	voorbeelden.toonVoorbeeld.text11.text	voorbeelden.toonVoorbeeld.text9.text	vragen.Answer1	vragen.Answer2	vragen.Answer3	vragen.Answer4	vragen.Count	vragen.Feedback	vragen.fileName	vragen.index	vragen.Question	vragen.SubmitText	vragen.toonVragen.end	vragen.toonVragen.endType	vragen.toonVragen.keyPressed	vragen.toonVragen.multiSelection2.selection1	vragen.toonVragen.offset	vragen.toonVragen.onset	vragen.toonVragen.rt	vragen.toonVragen.start	vragen.Type	
+9					4165	KEYPRESSED	{SPACE}	4164	3275	889	3267																																																																				
+9																																																												ja	nee			2	1000	lists/vragen.txt	1	Ben je kleurenblind?	Volgende	8942	KEYPRESSED	{SPACE}		7928	4172	3756	4165	RadioButton	
+9																																																												man	vrouw	anders	zeg ik liever niet	4	1000		2	Wat is  je gender?	Volgende	10761	KEYPRESSED	{SPACE}		9746	8945	801	8943	RadioButton	
+9																																							26574	KEYPRESSED	{SPACE}	26573	10771	pics/uitleg.png	15802	10761																																	
+9																																															voorbeeld1	lists/voorbeelden.tsv	1	31395	KEYPRESSED	{LEFT}	31395	26581	pics/voorbeeld1.bmp	4814	26574	A of <-        ...	Voorbeeld 1#Mat...																				
+9																																															voorbeeld2		2	32158	KEYPRESSED	{RIGHT}	32158	31403	pics/voorbeeld2.bmp	755	31396	A of <-        ...	Voorbeeld 2#Mat...																				
+9																																															voorbeeld3		3	32873	KEYPRESSED	{LEFT}	32873	32162	pics/voorbeeld3.bmp	711	32158	A of <-        ...	Voorbeeld 3#Mat...																				
+9																							35265	KEYPRESSED	{SPACE}	35264	32875	2389	32874	Druk op Spatie ...																																																	
+9																			35265	35265	35265	35265																																																									
+9												35769	DURATION	35769	35269	pics/fixatieKruis.bmp	-1	35265																																																													
+9																															37409	KEYPRESSED	{RIGHT}	37409	35774	pics/abstract1.bmp	1635	35769																																									
+9	37409	37409	37409	37409																																																																											
+9																			37410	37410	37410	37410																																																									
+9												37913	DURATION	37913	37413	pics/fixatieKruis.bmp	-1	37410																																																													
+9																															39149	KEYPRESSED	{LEFT}	39149	37917	pics/abstract2.bmp	1232	37913																																									
+9	39150	39150	39150	39150																																																																											
+9																			39150	39150	39150	39150																																																									
+9												39653	DURATION	39653	39153	pics/fixatieKruis.bmp	-1	39150																																																													
+9																															40349	KEYPRESSED	{LEFT}	40349	39657	pics/abstract3.bmp	692	39653																																									
+9	40349	40349	40349	40349																																																																											
+9																			40349	40349	40349	40349																																																									
+9												40853	DURATION	40853	40353	pics/fixatieKruis.bmp	-1	40349																																																													
+9																															41397	KEYPRESSED	{RIGHT}	41397	40856	pics/abstract4.bmp	541	40853																																									
+9	41397	41397	41397	41397																																																																											
+9																			41397	41397	41397	41397																																																									
+9												41900	DURATION	41900	41400	pics/fixatieKruis.bmp	-1	41397																																																													
+9																															42423	KEYPRESSED	{LEFT}	42423	41905	pics/abstract5.bmp	518	41900																																									
+9	42424	42424	42424	42424																																																																											
+9																			42424	42424	42424	42424																																																									
+9												42927	DURATION	42927	42427	pics/fixatieKruis.bmp	-1	42424																																																													
+9																															43843	KEYPRESSED	{LEFT}	43843	42930	pics/abstract6.bmp	913	42927																																									
+9	43843	43843	43843	43843																																																																											
+9																			43843	43843	43843	43843																																																									
+9												44347	DURATION	44347	43847	pics/fixatieKruis.bmp	-1	43843																																																													
+9																															45142	KEYPRESSED	{RIGHT}	45142	44351	pics/abstract7.bmp	791	44347																																									
+9	45142	45142	45142	45142																																																																											
+9																			45142	45142	45142	45142																																																									
+9												45646	DURATION	45646	45146	pics/fixatieKruis.bmp	-1	45142																																																													
+9																															46746	KEYPRESSED	{LEFT}	46746	45649	pics/iconisch1.bmp	1097	45646																																									
+9	46746	46746	46746	46746																																																																											
+9																			46747	46747	46746	46746																																																									
+9												47250	DURATION	47250	46750	pics/fixatieKruis.bmp	-1	46747																																																													
+9																															47891	KEYPRESSED	{RIGHT}	47891	47253	pics/iconisch2.bmp	638	47250																																									
+9	47891	47891	47891	47891																																																																											
+9																			47891	47891	47891	47891																																																									
+9												48395	DURATION	48395	47895	pics/fixatieKruis.bmp	-1	47891																																																													
+9																															49039	KEYPRESSED	{RIGHT}	49039	48398	pics/iconisch3.bmp	641	48395																																									
+9	49040	49040	49040	49040																																																																											
+9																			49040	49040	49040	49040																																																									
+9												49543	DURATION	49543	49043	pics/fixatieKruis.bmp	-1	49040																																																													
+9																															50158	KEYPRESSED	{LEFT}	50158	49547	pics/iconisch4.bmp	611	49543																																									
+9	50158	50158	50158	50158																																																																											
+9																			50159	50159	50158	50158																																																									
+9												50662	DURATION	50662	50162	pics/fixatieKruis.bmp	-1	50159																																																													
+9																															51196	KEYPRESSED	{LEFT}	51196	50666	pics/iconisch5.bmp	530	50662																																									
+9	51196	51196	51196	51196																																																																											
+9																			51196	51196	51196	51196																																																									
+9												51699	DURATION	51699	51199	pics/fixatieKruis.bmp	-1	51196																																																													
+9																															52376	KEYPRESSED	{RIGHT}	52376	51702	pics/iconisch6.bmp	674	51699																																									
+9	52376	52376	52376	52376																																																																											
+9																			52376	52376	52376	52376																																																									
+9												52879	DURATION	52879	52379	pics/fixatieKruis.bmp	-1	52376																																																													
+9																															53340	KEYPRESSED	{LEFT}	53340	52882	pics/iconisch7.bmp	458	52879																																									
+9	53341	53341	53341	53341																																																																											
+9																			53341	53341	53341	53341																																																									
+9												53844	DURATION	53844	53344	pics/fixatieKruis.bmp	-1	53341																																																													
+9																															54539	KEYPRESSED	{RIGHT}	54539	53847	pics/controle1.bmp	692	53844																																									
+9	54540	54540	54539	54539																																																																											
+9																			54540	54540	54540	54540																																																									
+9												55043	DURATION	55043	54543	pics/fixatieKruis.bmp	-1	54540																																																													
+9																															55518	KEYPRESSED	{LEFT}	55518	55046	pics/controle2.bmp	472	55043																																									
+9	55518	55518	55518	55518																																																																											
+9																			55518	55518	55518	55518																																																									
+9												56022	DURATION	56022	55522	pics/fixatieKruis.bmp	-1	55518																																																													
+9																															56515	KEYPRESSED	{RIGHT}	56515	56025	pics/controle3.bmp	490	56022																																									
+9	56515	56515	56515	56515																																																																											
+9																			56515	56515	56515	56515																																																									
+9												57019	DURATION	57019	56519	pics/fixatieKruis.bmp	-1	56515																																																													
+9																															57615	KEYPRESSED	{RIGHT}	57615	57022	pics/controle4.bmp	593	57019																																									
+9	57615	57615	57615	57615																																																																											
+9																			57616	57616	57615	57615																																																									
+9												58119	DURATION	58119	57619	pics/fixatieKruis.bmp	-1	57616																																																													
+9																															58653	KEYPRESSED	{LEFT}	58653	58122	pics/controle5.bmp	531	58119																																									
+9	58653	58653	58653	58653																																																																											
+9																			58653	58653	58653	58653																																																									
+9												59157	DURATION	59157	58657	pics/fixatieKruis.bmp	-1	58653																																																													
+9																															59883	KEYPRESSED	{LEFT}	59883	59161	pics/controle6.bmp	722	59157																																									
+9	59883	59883	59883	59883																																																																											
+9																			59883	59883	59883	59883																																																									
+9												60387	DURATION	60387	59887	pics/fixatieKruis.bmp	-1	59883																																																													
+9																															60861	KEYPRESSED	{RIGHT}	60860	60390	pics/controle7.bmp	470	60387																																									
+9	60861	60861	60861	60861																																																																											

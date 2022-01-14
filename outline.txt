@@ -23,14 +23,14 @@ window: fullscreen
 	m voor rechts 
 
 Hoe volgorde stimuli set bepalen?
+8 tm 34:
+list object with 24 items, all same basic structure :
 
-8 tm 16. stimuli set 1
-	record observation:
-		ID, geslacht, item, reaction speed, button pressed 
+	id, geslacht, item, reaction speed, button pressed 
 
-17 tm 25. stimuli set 2
+	17 tm 25. stimuli set 2
 
-26 tm 34. stimuli set 3 
+	26 tm 34. stimuli set 3 
 
 35. einde experiment, bedankt voor participeren 
 

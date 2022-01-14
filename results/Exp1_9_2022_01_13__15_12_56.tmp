@@ -1,0 +1,2 @@
+<line><pair>ID.end,4815</pair><pair>ID.endType,KEYPRESSED</pair><pair>ID.keyPressed,{SPACE}</pair><pair>ID.offset,4814</pair><pair>ID.onset,3774</pair><pair>ID.rt,1040</pair><pair>ID.start,3757</pair><pair>ID.text2.text,ID</pair></line>
+<line><pair>consent.end,5582</pair><pair>consent.endType,KEYPRESSED</pair><pair>consent.keyPressed,{SPACE}</pair><pair>consent.offset,5582</pair><pair>consent.onset,4823</pair><pair>consent.rt,759</pair><pair>consent.start,4815</pair><pair>consent.text1.text,Consent</pair></line>

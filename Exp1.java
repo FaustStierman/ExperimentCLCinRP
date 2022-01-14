@@ -61,7 +61,7 @@ int itemInSet = 1;
 String currentSet;
 
 int seed = Tools.getRandomNumber(1, 3); 
-
+int oefenrondeTeller = 1;
 String currentItem; 
     public Globals(IGraphics graphics) throws Exception
     {
@@ -75,8 +75,8 @@ class Init extends Graphics
    {
 setGraphicsDriver(GraphicsDriver.OPENGL_NVG);
 
-//setFullScreen(true);
-setFullScreen(false);
+setFullScreen(true);
+//setFullScreen(false);
 setScreenWidth(1000);
 setScreenHeight(0);   //0 -> keep aspect ratio, calculate height
 
@@ -98,62 +98,10 @@ public void close() throws Exception
 
 }
 
-class Page_ID extends Page
-{
-   Globals globals;
-   UserList parent;
-   TextControl text2;
-   Page_ID(ExperimentBuild experiment, UserList parent, Globals globals)
-   {
-      super("ID", experiment, parent);
-      this.globals = globals;
-      this.parent = parent;
-      this.pageParent = this;
-   }
-
-   @Override
-   public void load() throws Exception
-   {
-this.setDuration(-1);
-this.setKeyboard("{SPACE}");
-this.setKeyboardCanEndPage(true);
-this.setMouseDownEnabled(false);
-this.setMouseCanEndPage(true);
-this.setValidClicksOnly(true);
-this.setBackColor(Color.GRAY);
-this.setTransparent(false);
-
-text2 = new TextControl("text2");
-text2.setText("ID");
-//text2.setText(this.globals.allText.get("instr1Text"));
-text2.setText(String.join("\n",
-"ID"
-));
-text2.setX(0.5);
-text2.setY(0.5);
-text2.setWidth(0.5);
-text2.setHeight(0.5);
-text2.setXAlign(BaseControl.XAlign.CENTER); //LEFT, CENTER, RIGHT
-text2.setYAlign(BaseControl.YAlign.CENTER); //TOP, CENTER, BOTTOM
-text2.setFont("Roboto-Regular", Font.PLAIN, 24); //PLAIN, BOLD, ITALIC
-text2.setForeColor(Color.WHITE);
-//text2.setBackColor(Color.WHITE);
-text2.setHorizAlign(TextControl.HorizAlign.CENTER); //LEFT, CENTER, RIGHT
-text2.setVertAlign(TextControl.VertAlign.CENTER); //TOP, CENTER, BOTTOM
-text2.setBorderWidth(0);
-text2.setBorderColor(Color.BLACK);
-text2.setDrawBackColorNarrow(false);
-text2.setBackColorMarginHorizVert(0, 0);
-text2.setValidClick(false);
-this.addControl(text2);
-   }
-}
-
 class Page_consent extends Page
 {
    Globals globals;
    UserList parent;
-   TextControl text1;
    Page_consent(ExperimentBuild experiment, UserList parent, Globals globals)
    {
       super("consent", experiment, parent);
@@ -166,48 +114,61 @@ class Page_consent extends Page
    public void load() throws Exception
    {
 this.setDuration(-1);
-this.setKeyboard("{SPACE}");
-this.setKeyboardCanEndPage(true);
-this.setMouseDownEnabled(false);
+this.setKeyboard("{ANY}");
+this.setMouseDownEnabled(true);
 this.setMouseCanEndPage(true);
-this.setValidClicksOnly(true);
 this.setBackColor(Color.GRAY);
-this.setTransparent(false);
 
-text1 = new TextControl("text1");
-text1.setText("Consent");
-//text1.setText(this.globals.allText.get("instr1Text"));
-text1.setText(String.join("\n",
-"Consent"
-));
-text1.setX(0.5);
-text1.setY(0.5);
-text1.setWidth(0.5);
-text1.setHeight(0.5);
-text1.setXAlign(BaseControl.XAlign.CENTER); //LEFT, CENTER, RIGHT
-text1.setYAlign(BaseControl.YAlign.CENTER); //TOP, CENTER, BOTTOM
-text1.setFont("Roboto-Regular", Font.PLAIN, 24); //PLAIN, BOLD, ITALIC
-text1.setForeColor(Color.WHITE);
-//text1.setBackColor(Color.WHITE);
-text1.setHorizAlign(TextControl.HorizAlign.CENTER); //LEFT, CENTER, RIGHT
-text1.setVertAlign(TextControl.VertAlign.CENTER); //TOP, CENTER, BOTTOM
-text1.setBorderWidth(0);
-text1.setBorderColor(Color.BLACK);
-text1.setDrawBackColorNarrow(false);
-text1.setBackColorMarginHorizVert(0, 0);
-text1.setValidClick(false);
-this.addControl(text1);
+TextControl text_consent = new TextControl("consent");
+text_consent.setText("HTML Control - consent");
+text_consent.setX(0.5);
+text_consent.setY(0.5);
+text_consent.setWidth(0.5);
+text_consent.setHeight(0.5);
+text_consent.setFont("Roboto-Regular", Font.PLAIN, 24);
+text_consent.setForeColor(Color.BLACK);
+text_consent.setBackColor(Color.BLUE);
+text_consent.setHtmlViewPage("htmlViewFile_1.html");
+text_consent.setLogResults(false);
+this.addControl(text_consent);
+
+
+
+this.addHTMLResults("");
    }
 }
 
-class Page_geslacht extends Page
+class List_vragen extends UserList
+{
+   Globals globals;
+
+   List_vragen(ExperimentBuild experiment, UserList parent, Globals globals) throws Exception
+   {
+     super("vragen", experiment, parent);
+     this.globals = globals;
+     try
+     {
+        this.setListParent(this);
+this.setRandomization(UserList.Randomization.RANDOM); //RANDOM, SEQUENTIAL
+this.loadList("lists/vragen.txt");
+//this.setListStatus("TEST1");
+this.add(new Page_toonVragen(experiment, this, globals));
+    }
+    catch(Exception ex)
+    {
+       throw ex;
+    }
+   }
+}
+
+class Page_toonVragen extends Page
 {
    Globals globals;
    UserList parent;
-   TextControl text3;
-   Page_geslacht(ExperimentBuild experiment, UserList parent, Globals globals)
+   MultiSelectionControl multiSelection2;
+   Page_toonVragen(ExperimentBuild experiment, UserList parent, Globals globals)
    {
-      super("geslacht", experiment, parent);
+      super("toonVragen", experiment, parent);
       this.globals = globals;
       this.parent = parent;
       this.pageParent = this;
@@ -225,139 +186,166 @@ this.setValidClicksOnly(true);
 this.setBackColor(Color.GRAY);
 this.setTransparent(false);
 
-text3 = new TextControl("text3");
-text3.setText("Geslacht");
-//text3.setText(this.globals.allText.get("instr1Text"));
-text3.setText(String.join("\n",
-"Geslacht"
-));
-text3.setX(0.5);
-text3.setY(0.5);
-text3.setWidth(0.5);
-text3.setHeight(0.5);
-text3.setXAlign(BaseControl.XAlign.CENTER); //LEFT, CENTER, RIGHT
-text3.setYAlign(BaseControl.YAlign.CENTER); //TOP, CENTER, BOTTOM
-text3.setFont("Roboto-Regular", Font.PLAIN, 24); //PLAIN, BOLD, ITALIC
-text3.setForeColor(Color.WHITE);
-//text3.setBackColor(Color.WHITE);
-text3.setHorizAlign(TextControl.HorizAlign.CENTER); //LEFT, CENTER, RIGHT
-text3.setVertAlign(TextControl.VertAlign.CENTER); //TOP, CENTER, BOTTOM
-text3.setBorderWidth(0);
-text3.setBorderColor(Color.BLACK);
-text3.setDrawBackColorNarrow(false);
-text3.setBackColorMarginHorizVert(0, 0);
-text3.setValidClick(false);
-this.addControl(text3);
+
+//this.setKeyboardCanEndPage(false);
+//this.setMouseDownEnabled(true);
+//this.setMouseCanEndPage(true);
+//this.setValidClicksOnly(true);
+multiSelection2 = new MultiSelectionControl("multiSelection2");
+multiSelection2.setListParent(this.getParent());
+multiSelection2.setPageParent(this);
+multiSelection2.setType("[Type]");
+multiSelection2.setCount("[Count]");
+multiSelection2.setFeedback("[Feedback]");
+
+//Question, used for all subcontrols
+multiSelection2.setQuestion("[Question]");
+multiSelection2.setQuestionFont("Roboto-Regular", Font.BOLD, 36);
+multiSelection2.setQuestionForeColor(Color.WHITE);
+//multiSelection2.setQuestionBackColor(Color.LIGHT_GRAY);
+multiSelection2.setQuestionBorderWidth(0);
+multiSelection2.setQuestionBorderColor(Color.BLACK);
+multiSelection2.setQuestionOffsetY(20);
+multiSelection2.setQuestionDrawBackColorNarrow(true);
+multiSelection2.setQuestionBackColorMarginHorizVert(5, 5);
+
+//Selection -> radiobuttons/checkboxes/other (text input)
+multiSelection2.selection_setX(0.1); multiSelection2.selection_setXAlign(BaseControl.XAlign.LEFT);
+multiSelection2.selection_setY(0.2); multiSelection2.selection_setYAlign(BaseControl.YAlign.TOP);
+multiSelection2.setWidth(0.3);
+multiSelection2.selection_setDirection(SelectionControl.Direction.VERTICAL);
+multiSelection2.selection_setHorizAlign(TextControl.HorizAlign.LEFT);
+multiSelection2.selection_setAnswers("Answer"); //Main header of answers, e.g. Answer -> Answer1, Answer2, ...
+multiSelection2.selection_setAnswersFont("Roboto-Regular", Font.PLAIN, 24);
+multiSelection2.selection_setAnswersForeColor(Color.WHITE);
+multiSelection2.selection_setAnswersOffsetXBefore(20); //space before selection control
+multiSelection2.selection_setAnswersOffsetXAfter(30); //space between selection and answer control
+multiSelection2.selection_setAnswersOffsetX(150); //space between answers when Directon = 'Horizontal'
+multiSelection2.selection_setAnswersOffsetY(30); //line space between answers when Direction = 'Vertical'
+multiSelection2.selection_setSelRadius(12);
+multiSelection2.selection_setSelBackColor(Color.WHITE);
+multiSelection2.selection_setSelLineWidth(1);
+multiSelection2.selection_setSelLineColor(Color.WHITE);
+multiSelection2.selection_setSelectedBackColor(Color.BLACK);
+
+//SetOtherxxx -> Last item will be input box
+multiSelection2.selection_setOtherText("");
+multiSelection2.selection_setOtherOffsetX(0); //set 0 for x-Alignment with other answers
+multiSelection2.selection_setOtherOffsetY(15); 
+multiSelection2.selection_setOtherWidth(0.25);
+multiSelection2.selection_setOtherFont("Roboto-Regular", Font.PLAIN, 24);
+multiSelection2.selection_setOtherForeColor(Color.WHITE);
+multiSelection2.selection_setOtherBackColor(Color.BLUE);
+multiSelection2.selection_setOtherBorderWidth(1);
+multiSelection2.selection_setOtherBorderColor(Color.BLACK);
+multiSelection2.selection_setOtherBackColorMarginHorizVert(1, 1);
+
+//Button will confirm selection
+multiSelection2.button_setText("[SubmitText]");
+multiSelection2.button_setX(0.7); multiSelection2.button_setXAlign(BaseControl.XAlign.CENTER);
+multiSelection2.button_setY(0.8); multiSelection2.button_setYAlign(BaseControl.YAlign.CENTER);
+multiSelection2.button_setWidth(100);
+multiSelection2.button_setHeight(75);
+multiSelection2.button_setForeColor(Color.WHITE);
+multiSelection2.button_setBackColor(Color.LIGHT_GRAY);
+multiSelection2.button_setSelectedBackColor(Color.BLUE);
+multiSelection2.button_setFont("Roboto-Regular", Font.PLAIN, 24);
+
+//Dropdown list
+multiSelection2.list_setList("Answer");
+multiSelection2.list_setX(0.1); multiSelection2.list_setXAlign(BaseControl.XAlign.LEFT);
+multiSelection2.list_setY(0.2); multiSelection2.list_setYAlign(BaseControl.YAlign.TOP);
+multiSelection2.list_setWidth(0.75);
+multiSelection2.list_setListWidth(0.35);
+multiSelection2.list_setListFont("Roboto-Regular", Font.PLAIN, 18);
+multiSelection2.list_setListForeColor(Color.WHITE);
+multiSelection2.list_setListBackColor(Color.LIGHT_GRAY);
+multiSelection2.list_setListBorderWidth(1);
+multiSelection2.list_setListBorderColor(Color.BLACK);
+multiSelection2.list_setSelectionBackColor(Color.GRAY);
+multiSelection2.list_setSelectedBackColor(Color.BLUE);
+
+//Rating
+multiSelection2.rating_setX(0.1); multiSelection2.rating_setXAlign(BaseControl.XAlign.LEFT);
+multiSelection2.rating_setY(0.2); multiSelection2.rating_setYAlign(BaseControl.YAlign.TOP);
+multiSelection2.rating_setQuestionAlign(BaseControl.QuestionAlign.LEFT);
+multiSelection2.rating_setGeometry(RatingControl.Geometry.CIRCLE); //SQUARE, CIRCLE
+multiSelection2.rating_setRatingLeft("Not sure");
+multiSelection2.rating_setRatingRight("Very sure");
+multiSelection2.rating_setRatingFont("Roboto-Regular", Font.PLAIN, 24);
+multiSelection2.rating_setRatingForeColor(Color.BLACK);
+multiSelection2.rating_setRatingOffsetY(50);
+multiSelection2.rating_setAnswers("Answer"); //no spaces
+multiSelection2.rating_setAnswersFont("Roboto-Regular", Font.PLAIN, 18);
+multiSelection2.rating_setAnswersForeColor(Color.BLACK);
+multiSelection2.rating_setAnswersOffsetX(50); //space between answers
+multiSelection2.rating_setSelRadius(12);
+multiSelection2.rating_setSelBackColor(Color.BLUE);
+multiSelection2.rating_setSelLineWidth(1);
+multiSelection2.rating_setSelLineColor(Color.BLACK);
+multiSelection2.rating_setSelectedBackColor(Color.BLACK);
+
+//Slider
+multiSelection2.slider_setX(0.1); multiSelection2.slider_setXAlign(BaseControl.XAlign.LEFT);
+multiSelection2.slider_setY(0.3); multiSelection2.slider_setYAlign(BaseControl.YAlign.TOP);
+multiSelection2.slider_setWidth(0.5);
+multiSelection2.slider_setHeight(40);
+multiSelection2.slider_setQuestionAlign(BaseControl.QuestionAlign.LEFT);
+multiSelection2.slider_setBackColor(Color.DARK_GRAY);
+multiSelection2.slider_setBeforeSelectColor(Color.WHITE);
+multiSelection2.slider_setKnobColor(Color.BLUE);
+multiSelection2.slider_setKnobLineColor(Color.BLACK);
+multiSelection2.slider_setKnobLineWidth(0);
+multiSelection2.slider_setLabelShow(true);
+multiSelection2.slider_setLabelWidth(100);
+multiSelection2.slider_setLabelHeight(30);
+multiSelection2.slider_setLabelColor(Color.BLUE);
+multiSelection2.slider_setLabelFont("Roboto-Regular", Font.PLAIN, 14);
+multiSelection2.slider_setLabelOffset(20);
+multiSelection2.slider_setMinValue("[Answer1]");
+multiSelection2.slider_setMaxValue("[Answer2]");
+multiSelection2.slider_setPos("[Answer3]");
+multiSelection2.slider_setUseValidation(true);
+
+//Input textbox
+multiSelection2.textInput_setText("");
+multiSelection2.textInput_setX(0.1); multiSelection2.textInput_setXAlign(BaseControl.XAlign.LEFT);
+multiSelection2.textInput_setY(0.3); multiSelection2.textInput_setYAlign(BaseControl.YAlign.TOP);
+multiSelection2.textInput_setQuestionAlign(BaseControl.QuestionAlign.LEFT);
+multiSelection2.textInput_setWidth(0.35);
+multiSelection2.textInput_setQuestionOffsetY(5);
+multiSelection2.textInput_setForeColor(Color.WHITE);
+multiSelection2.textInput_setBackColor(Color.BLUE);
+multiSelection2.textInput_setFont("Roboto-Regular", Font.PLAIN, 24);
+multiSelection2.textInput_setBorderWidth(1);
+multiSelection2.textInput_setBorderColor(Color.BLACK);
+multiSelection2.textInput_setEndKey("");
+multiSelection2.textInput_setBackColorMarginHorizVert(1, 1);
+
+this.addControl(multiSelection2);
+
+     
+
    }
-}
+    @Override
+    public void frameFunc() throws Exception
+    {
+   	this.multiSelection2.frame();
+    }
 
-class Page_visie extends Page
-{
-   Globals globals;
-   UserList parent;
-   TextControl text4;
-   Page_visie(ExperimentBuild experiment, UserList parent, Globals globals)
-   {
-      super("visie", experiment, parent);
-      this.globals = globals;
-      this.parent = parent;
-      this.pageParent = this;
-   }
+    @Override
+    public void finishFunc() throws Exception
+    {
+     this.multiSelection2.finish();
+    }
 
-   @Override
-   public void load() throws Exception
-   {
-this.setDuration(-1);
-this.setKeyboard("{SPACE}");
-this.setKeyboardCanEndPage(true);
-this.setMouseDownEnabled(false);
-this.setMouseCanEndPage(true);
-this.setValidClicksOnly(true);
-this.setBackColor(Color.GRAY);
-this.setTransparent(false);
-
-text4 = new TextControl("text4");
-text4.setText("Visie");
-//text4.setText(this.globals.allText.get("instr1Text"));
-text4.setText(String.join("\n",
-"Visie"
-));
-text4.setX(0.5);
-text4.setY(0.5);
-text4.setWidth(0.5);
-text4.setHeight(0.5);
-text4.setXAlign(BaseControl.XAlign.CENTER); //LEFT, CENTER, RIGHT
-text4.setYAlign(BaseControl.YAlign.CENTER); //TOP, CENTER, BOTTOM
-text4.setFont("Roboto-Regular", Font.PLAIN, 24); //PLAIN, BOLD, ITALIC
-text4.setForeColor(Color.WHITE);
-//text4.setBackColor(Color.WHITE);
-text4.setHorizAlign(TextControl.HorizAlign.CENTER); //LEFT, CENTER, RIGHT
-text4.setVertAlign(TextControl.VertAlign.CENTER); //TOP, CENTER, BOTTOM
-text4.setBorderWidth(0);
-text4.setBorderColor(Color.BLACK);
-text4.setDrawBackColorNarrow(false);
-text4.setBackColorMarginHorizVert(0, 0);
-text4.setValidClick(false);
-this.addControl(text4);
-   }
-}
-
-class Page_kleurenblind extends Page
-{
-   Globals globals;
-   UserList parent;
-   TextControl text5;
-   Page_kleurenblind(ExperimentBuild experiment, UserList parent, Globals globals)
-   {
-      super("kleurenblind", experiment, parent);
-      this.globals = globals;
-      this.parent = parent;
-      this.pageParent = this;
-   }
-
-   @Override
-   public void load() throws Exception
-   {
-this.setDuration(-1);
-this.setKeyboard("{SPACE}");
-this.setKeyboardCanEndPage(true);
-this.setMouseDownEnabled(false);
-this.setMouseCanEndPage(true);
-this.setValidClicksOnly(true);
-this.setBackColor(Color.GRAY);
-this.setTransparent(false);
-
-text5 = new TextControl("text5");
-text5.setText("Visie");
-//text5.setText(this.globals.allText.get("instr1Text"));
-text5.setText(String.join("\n",
-"Kleurenblind"
-));
-text5.setX(0.5);
-text5.setY(0.5);
-text5.setWidth(0.5);
-text5.setHeight(0.5);
-text5.setXAlign(BaseControl.XAlign.CENTER); //LEFT, CENTER, RIGHT
-text5.setYAlign(BaseControl.YAlign.CENTER); //TOP, CENTER, BOTTOM
-text5.setFont("Roboto-Regular", Font.PLAIN, 24); //PLAIN, BOLD, ITALIC
-text5.setForeColor(Color.WHITE);
-//text5.setBackColor(Color.WHITE);
-text5.setHorizAlign(TextControl.HorizAlign.CENTER); //LEFT, CENTER, RIGHT
-text5.setVertAlign(TextControl.VertAlign.CENTER); //TOP, CENTER, BOTTOM
-text5.setBorderWidth(0);
-text5.setBorderColor(Color.BLACK);
-text5.setDrawBackColorNarrow(false);
-text5.setBackColorMarginHorizVert(0, 0);
-text5.setValidClick(false);
-this.addControl(text5);
-   }
 }
 
 class Page_uitleg extends Page
 {
    Globals globals;
    UserList parent;
-   TextControl text6;
+   PictureControl picture5;
    Page_uitleg(ExperimentBuild experiment, UserList parent, Globals globals)
    {
       super("uitleg", experiment, parent);
@@ -378,40 +366,126 @@ this.setValidClicksOnly(true);
 this.setBackColor(Color.GRAY);
 this.setTransparent(false);
 
-text6 = new TextControl("text6");
-text6.setText("uitleg");
-//text6.setText(this.globals.allText.get("instr1Text"));
-text6.setText(String.join("\n",
-"Uitleg"
-));
-text6.setX(0.5);
-text6.setY(0.5);
-text6.setWidth(0.5);
-text6.setHeight(0.5);
-text6.setXAlign(BaseControl.XAlign.CENTER); //LEFT, CENTER, RIGHT
-text6.setYAlign(BaseControl.YAlign.CENTER); //TOP, CENTER, BOTTOM
-text6.setFont("Roboto-Regular", Font.PLAIN, 24); //PLAIN, BOLD, ITALIC
-text6.setForeColor(Color.WHITE);
-//text6.setBackColor(Color.WHITE);
-text6.setHorizAlign(TextControl.HorizAlign.CENTER); //LEFT, CENTER, RIGHT
-text6.setVertAlign(TextControl.VertAlign.CENTER); //TOP, CENTER, BOTTOM
-text6.setBorderWidth(0);
-text6.setBorderColor(Color.BLACK);
-text6.setDrawBackColorNarrow(false);
-text6.setBackColorMarginHorizVert(0, 0);
-text6.setValidClick(false);
-this.addControl(text6);
+picture5 = new PictureControl("picture5");
+picture5.setPicture("pics/uitleg.png");
+picture5.setX(0.5);
+picture5.setY(0.5);
+picture5.setWidth(1);
+picture5.setHeight(1);
+//picture5.setRadius(15);
+picture5.setXAlign(BaseControl.XAlign.CENTER); //LEFT, CENTER, RIGHT
+picture5.setYAlign(BaseControl.YAlign.CENTER); //TOP, CENTER, BOTTOM
+picture5.setScale(PictureControl.Scale.STRETCH_ASPECTRATIO);  //NONE, STRETCH, STRETCH_ASPECTRATIO, WIDTH, HEIGHT
+picture5.setBorderWidth(0);
+picture5.setBorderColor(Color.BLUE);
+picture5.setZOrder(10);
+picture5.setValidClick(false);
+this.addControl(picture5);
    }
 }
 
-class Page_oefenvoorbeeld extends Page
+class List_voorbeelden extends UserList
+{
+   Globals globals;
+
+   List_voorbeelden(ExperimentBuild experiment, UserList parent, Globals globals) throws Exception
+   {
+     super("voorbeelden", experiment, parent);
+     this.globals = globals;
+     try
+     {
+        this.setListParent(this);
+this.setRandomization(UserList.Randomization.SEQUENTIAL); //RANDOM, SEQUENTIAL
+this.loadList("lists/voorbeelden.tsv");
+//this.setListStatus("TEST1");
+this.add(new Page_toonVoorbeeld(experiment, this, globals));
+    }
+    catch(Exception ex)
+    {
+       throw ex;
+    }
+   }
+}
+
+class Page_toonVoorbeeld extends Page
 {
    Globals globals;
    UserList parent;
-   TextControl text7;
-   Page_oefenvoorbeeld(ExperimentBuild experiment, UserList parent, Globals globals)
+   PictureControl picture2;
+   TextControl text9;
+   Page_toonVoorbeeld(ExperimentBuild experiment, UserList parent, Globals globals)
    {
-      super("oefenvoorbeeld", experiment, parent);
+      super("toonVoorbeeld", experiment, parent);
+      this.globals = globals;
+      this.parent = parent;
+      this.pageParent = this;
+   }
+
+   @Override
+   public void load() throws Exception
+   {
+this.setDuration(-1);
+this.setKeyboard("ad{RIGHT}{LEFT}");
+this.setKeyboardCanEndPage(true);
+this.setMouseDownEnabled(false);
+this.setMouseCanEndPage(false);
+this.setValidClicksOnly(true);
+this.setBackColor(Color.GRAY);
+this.setTransparent(false);
+
+picture2 = new PictureControl("picture2");
+picture2.setPicture("pics/[afbeelding].bmp");
+picture2.setX(0.5);
+picture2.setY(0.5);
+picture2.setWidth(0.8);
+picture2.setHeight(0.8);
+//picture2.setRadius(15);
+picture2.setXAlign(BaseControl.XAlign.CENTER); //LEFT, CENTER, RIGHT
+picture2.setYAlign(BaseControl.YAlign.CENTER); //TOP, CENTER, BOTTOM
+picture2.setScale(PictureControl.Scale.STRETCH_ASPECTRATIO);  //NONE, STRETCH, STRETCH_ASPECTRATIO, WIDTH, HEIGHT
+picture2.setBorderWidth(0);
+picture2.setBorderColor(Color.BLUE);
+picture2.setZOrder(10);
+picture2.setValidClick(false);
+this.addControl(picture2);
+
+text9 = new TextControl("text9");
+//text9.setText("");
+//text9.setText(this.globals.allText.get("instr1Text"));
+text9.setText(String.join("\n",
+"Voorbeeld " + String.format("%d",this.globals.oefenrondeTeller),
+"Match deze kleur met rechts of links"
+));
+text9.setX(0.5);
+text9.setY(0.05);
+text9.setWidth(0.5);
+text9.setHeight(0.5);
+text9.setXAlign(BaseControl.XAlign.CENTER); //LEFT, CENTER, RIGHT
+text9.setYAlign(BaseControl.YAlign.CENTER); //TOP, CENTER, BOTTOM
+text9.setFont("Roboto-Regular", Font.BOLD, 36); //PLAIN, BOLD, ITALIC
+text9.setForeColor(Color.WHITE);
+//text9.setBackColor(Color.WHITE);
+text9.setHorizAlign(TextControl.HorizAlign.CENTER); //LEFT, CENTER, RIGHT
+text9.setVertAlign(TextControl.VertAlign.CENTER); //TOP, CENTER, BOTTOM
+text9.setBorderWidth(0);
+text9.setBorderColor(Color.BLACK);
+text9.setDrawBackColorNarrow(false);
+text9.setBackColorMarginHorizVert(0, 0);
+text9.setValidClick(false);
+this.addControl(text9);
+
+this.globals.oefenrondeTeller++;
+   }
+}
+
+class Page_startTrail extends Page
+{
+   Globals globals;
+   UserList parent;
+   TextControl text12;
+   Page_startTrail(ExperimentBuild experiment, UserList parent, Globals globals)
+   {
+      super("startTrail", experiment, parent);
       this.globals = globals;
       this.parent = parent;
       this.pageParent = this;
@@ -429,29 +503,30 @@ this.setValidClicksOnly(true);
 this.setBackColor(Color.GRAY);
 this.setTransparent(false);
 
-text7 = new TextControl("text7");
-text7.setText("oefenvoorbeeld");
-//text7.setText(this.globals.allText.get("instr1Text"));
-text7.setText(String.join("\n",
-"OefenVoorbeeld"
+text12 = new TextControl("text12");
+//text12.setText("");
+//text12.setText(this.globals.allText.get("instr1Text"));
+text12.setText(String.join("\n",
+"Dat waren de oefenvragen",
+"Druk op Spatie om door te gaan naar de test"
 ));
-text7.setX(0.5);
-text7.setY(0.5);
-text7.setWidth(0.5);
-text7.setHeight(0.5);
-text7.setXAlign(BaseControl.XAlign.CENTER); //LEFT, CENTER, RIGHT
-text7.setYAlign(BaseControl.YAlign.CENTER); //TOP, CENTER, BOTTOM
-text7.setFont("Roboto-Regular", Font.PLAIN, 24); //PLAIN, BOLD, ITALIC
-text7.setForeColor(Color.WHITE);
-//text7.setBackColor(Color.WHITE);
-text7.setHorizAlign(TextControl.HorizAlign.CENTER); //LEFT, CENTER, RIGHT
-text7.setVertAlign(TextControl.VertAlign.CENTER); //TOP, CENTER, BOTTOM
-text7.setBorderWidth(0);
-text7.setBorderColor(Color.BLACK);
-text7.setDrawBackColorNarrow(false);
-text7.setBackColorMarginHorizVert(0, 0);
-text7.setValidClick(false);
-this.addControl(text7);
+text12.setX(0.5);
+text12.setY(0.5);
+text12.setWidth(0.5);
+text12.setHeight(0.5);
+text12.setXAlign(BaseControl.XAlign.CENTER); //LEFT, CENTER, RIGHT
+text12.setYAlign(BaseControl.YAlign.CENTER); //TOP, CENTER, BOTTOM
+text12.setFont("Roboto-Regular", Font.BOLD, 36); //PLAIN, BOLD, ITALIC
+text12.setForeColor(Color.BLACK);
+//text12.setBackColor(Color.WHITE);
+text12.setHorizAlign(TextControl.HorizAlign.CENTER); //LEFT, CENTER, RIGHT
+text12.setVertAlign(TextControl.VertAlign.CENTER); //TOP, CENTER, BOTTOM
+text12.setBorderWidth(0);
+text12.setBorderColor(Color.BLACK);
+text12.setDrawBackColorNarrow(false);
+text12.setBackColorMarginHorizVert(0, 0);
+text12.setValidClick(false);
+this.addControl(text12);
    }
 }
 
@@ -487,6 +562,49 @@ else if (Tools.modEquals(this.globals.seed + this.globals.setsCompleted, 3, 2)){
    }
 }
 
+class Page_fixatieKruis extends Page
+{
+   Globals globals;
+   UserList parent;
+   PictureControl picture4;
+   Page_fixatieKruis(ExperimentBuild experiment, UserList parent, Globals globals)
+   {
+      super("fixatieKruis", experiment, parent);
+      this.globals = globals;
+      this.parent = parent;
+      this.pageParent = this;
+   }
+
+   @Override
+   public void load() throws Exception
+   {
+this.setDuration(500);
+this.setKeyboard("{SPACE}");
+this.setKeyboardCanEndPage(false);
+this.setMouseDownEnabled(false);
+this.setMouseCanEndPage(false);
+this.setValidClicksOnly(true);
+this.setBackColor(Color.GRAY);
+this.setTransparent(false);
+
+picture4 = new PictureControl("picture4");
+picture4.setPicture("pics/fixatieKruis.bmp");
+picture4.setX(0.5);
+picture4.setY(0.5);
+picture4.setWidth(0.8);
+picture4.setHeight(0.8);
+//picture4.setRadius(15);
+picture4.setXAlign(BaseControl.XAlign.CENTER); //LEFT, CENTER, RIGHT
+picture4.setYAlign(BaseControl.YAlign.CENTER); //TOP, CENTER, BOTTOM
+picture4.setScale(PictureControl.Scale.STRETCH_ASPECTRATIO);  //NONE, STRETCH, STRETCH_ASPECTRATIO, WIDTH, HEIGHT
+picture4.setBorderWidth(0);
+picture4.setBorderColor(Color.BLUE);
+picture4.setZOrder(10);
+picture4.setValidClick(false);
+this.addControl(picture4);
+   }
+}
+
 class Page_testItemN extends Page
 {
    Globals globals;
@@ -504,7 +622,7 @@ class Page_testItemN extends Page
    public void load() throws Exception
    {
 this.setDuration(-1);
-this.setKeyboard("zm");
+this.setKeyboard("ad{RIGHT}{LEFT}");
 this.setKeyboardCanEndPage(true);
 this.setMouseDownEnabled(false);
 this.setMouseCanEndPage(true);
@@ -516,8 +634,8 @@ picture1 = new PictureControl("picture1");
 picture1.setPicture("pics/" + this.globals.currentItem + ".bmp");
 picture1.setX(0.5);
 picture1.setY(0.5);
-picture1.setWidth(0.5);
-picture1.setHeight(0.5);
+picture1.setWidth(0.8);
+picture1.setHeight(0.8);
 //picture1.setRadius(15);
 picture1.setXAlign(BaseControl.XAlign.CENTER); //LEFT, CENTER, RIGHT
 picture1.setYAlign(BaseControl.YAlign.CENTER); //TOP, CENTER, BOTTOM
@@ -600,7 +718,18 @@ text8 = new TextControl("text8");
 //text8.setText(this.globals.allText.get("instr1Text"));
 
 text8.setText(String.join("\n",
-"Einde"
+"Namens Faust, Francijn en Joran", 
+"",
+"Bedankt voor het meedoen aan ons experiment", 
+"", 
+"voor vragen of op merkingen kan je mailen naar:", 
+"",
+"Faust.stierman@student.uva.nl", 
+"",
+"Francijn.Keur@student.uva.nl", 
+"", 
+"en", 
+"Joran.Paap@student.uva.nl"
 ));
 text8.setX(0.5);
 text8.setY(0.5);
@@ -608,8 +737,8 @@ text8.setWidth(0.5);
 text8.setHeight(0.5);
 text8.setXAlign(BaseControl.XAlign.CENTER); //LEFT, CENTER, RIGHT
 text8.setYAlign(BaseControl.YAlign.CENTER); //TOP, CENTER, BOTTOM
-text8.setFont("Roboto-Regular", Font.PLAIN, 24); //PLAIN, BOLD, ITALIC
-text8.setForeColor(Color.BLACK);
+text8.setFont("Roboto-Regular", Font.PLAIN, 36); //PLAIN, BOLD, ITALIC
+text8.setForeColor(Color.WHITE);
 //text8.setBackColor(Color.WHITE);
 text8.setHorizAlign(TextControl.HorizAlign.CENTER); //LEFT, CENTER, RIGHT
 text8.setVertAlign(TextControl.VertAlign.CENTER); //TOP, CENTER, BOTTOM
@@ -629,14 +758,13 @@ public void createExperiment() throws Exception
 {
 this.setPageColor(Color.WHITE);
 globals= new Globals(this.graphics);
-flow.addPage(new Page_ID(this, null, globals));
 flow.addPage(new Page_consent(this, null, globals));
-flow.addPage(new Page_geslacht(this, null, globals));
-flow.addPage(new Page_visie(this, null, globals));
-flow.addPage(new Page_kleurenblind(this, null, globals));
+flow.addList(new List_vragen(this, null, globals));
 flow.addPage(new Page_uitleg(this, null, globals));
-flow.addPage(new Page_oefenvoorbeeld(this, null, globals));
+flow.addList(new List_voorbeelden(this, null, globals));
+flow.addPage(new Page_startTrail(this, null, globals));
 flow.addCode(new Code_preTrail(this, null, globals));
+flow.addPage(new Page_fixatieKruis(this, null, globals));
 flow.addPage(new Page_testItemN(this, null, globals));
 flow.addCode(new Code_code2(this, null, globals));
 flow.addPage(new Page_einde(this, null, globals));

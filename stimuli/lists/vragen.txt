@@ -1,0 +1,3 @@
+Question	Type	SubmitText	Feedback	Count	Answer1	Answer2	Answer3	Answer4
+Wat is  je gender?	RadioButton	Volgende	1000	4	man	vrouw	anders	zeg ik liever niet
+Ben je kleurenblind?	RadioButton	Volgende	1000	2	ja	nee		
