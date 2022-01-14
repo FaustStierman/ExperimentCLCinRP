@@ -1,0 +1,87 @@
+//Take care that backtick is at begin/end -> `
+//Remove text, copy/paste from text/Word document and use toString in menu to format it correctly (appending <br>)
+//Use rightclick->Formatting->Remove linebreaks to put the checkboxes on a single line.
+let text= `
+<center><h1><b>Universiteit van Amsterdam</b></h1></center>
+
+Informatiebrochure voor Kleurherkenning
+
+Geachte participant / Beste deelnemer,
+
+U gaat deelnemen aan het onderzoek kleurherkenning van de Universiteit van Amsterdam, faculteit der Geesteswetenschappen, uitgevoerd door Francijn Keur, Faust Stierman en Joran Paap onder begeleiding van Hernán Labbé Grunberg. Voordat het onderzoek begint, is het belangrijk dat u kennis neemt van de procedures die in dit onderzoek worden gevolgd. Leest u deze brochure daarom zorgvuldig door.
+
+<b>Doel van het onderzoek</b>
+Perceptie is iets waar al redelijk veel onderzoek naar gedaan is. Verschillende aspecten hebben invloed op de snelheid en accuraatheid waarmee je iets waarneemt. Dit onderzoek richt zich specifiek op onze perceptie van kleuren. Eerder onderzoek heeft al aangetoond dat je bijvoorbeeld sneller een kleur categoriseert wanneer je hier een woord voor hebt, in tegenstelling tot wanneer je er geen woord voor hebt. Met dit onderzoek hopen wij meer te leren over kleurperceptie en welke kenmerken mogelijk invloed hebben op de snelheid van kleurcategorisatie.
+
+<b>Wie kan er aan dit onderzoek meedoen</b>
+Voor dit onderzoek worden volwassen uitgenodigd die niet kleurenblind zijn. Wij vragen u voorafgaand aan het onderzoek ook naar uw gezichtsvermogen. Gezien de aard van het onderzoek is het van belang dat u goed kunt zien. Het dragen van een bril is wel mogelijk. 
+
+<b>Instructie en procedure</b>
+U krijgt per trial drie items te zien op uw scherm. Er staat 1 item bovenaan het scherm en onderaan het scherm staan de 2 andere items. Van u wordt verwacht dat u, door middel van de knoppen op uw toetsenbord én zo snel mogelijk, een van de onderste items selecteert die qua kleur het meest lijkt op de kleur van het bovenste item. Het experiment zal beginnen met een aantal vragen naar bijvoorbeeld uw zicht, leeftijd en gender en daarna komt een oefentrial. Na de oefentrial zal het daadwerkelijke experiment van start gaan. In totaal bestaat het experiment uit drie blokken die elk bestaan uit 8 trials. Na de 24 trials ziet u een eindscherm en kan u de pagina sluiten.
+
+<b>Vrijwilligheid</b>
+U doet vrijwillig mee aan dit onderzoek. U kunt dan ook op elk moment gedurende het onderzoek uw deelname stopzetten. Dit zal geen gevolgen voor u hebben en u bent in geen geval verplicht de hierboven beschreven procedures af te ronden. Tevens kunt u tot 8 dagen na het onderzoek uw deelname alsnog intrekken. Als u uw deelname staakt of toestemming intrekt, worden alle tot dan toe verzamelde gegevens definitief verwijderd.
+
+<b>Ongemak, Risico’s en Verzekering </b>
+De risico’s van deelname aan dit onderzoek zijn niet groter dan die in dagelijkse situaties thuis. Uit ervaring met voorgaande, vergelijkbare onderzoeken is gebleken dat er van enig ongemak voor de deelnemers niet of nauwelijks sprake is. Bij elk onderzoek van de Universiteit van Amsterdam geldt een standaard aansprakelijkheidsverzekering.
+
+<b>Vertrouwelijkheid van de onderzoeksgegevens</b>
+De gegevens die in dit onderzoek worden verzameld, zullen door de onderzoekers alleen worden gebruikt voor nadere analyse en voor publicatie in wetenschappelijke tijdschriften. Hierbij wordt geen gebruik gemaakt van uw persoonlijke gegevens en uw anonimiteit blijft onder alle omstandigheden gewaarborgd.
+	De verzamelde onderzoeksgegevens zullen gecodeerd opgeslagen worden, apart van uw persoonlijke gegevens. Alleen medewerkers aan het onderzoek hebben toegang tot deze gegevens en de codering. 
+
+<b>Vergoeding</b>
+U ontvangt voor uw deelname geen vergoeding. Als u daar prijs op stelt, ontvangt u te zijner tijd een samenvatting met de algemene resultaten van het onderzoek. 
+
+<b>Nadere inlichtingen</b>
+Als u nog verdere informatie wilt over dit onderzoek, dan kunt u zich wenden tot 
+Francijn Keur, Faust Stierman of Joran Paap (e-mail: francijn.keur@student.uva.nl, faust.stierman@student.uva.nl, joran.paap@student.uva.nl). 
+Met eventuele klachten over dit onderzoek kunt u zich wenden tot de secretaris van de Commissie Ethiek van de Faculteit Geesteswetenschappen van de Universiteit van Amsterdam; email: commissie-ethiek-fgw@uva.nl ; telefoon: +31 20 - 525 3054; Kloveniersburgwal 48, 1012 CX Amsterdam.
+
+
+<b>Toestemmingsformulier </b>
+
+‘Ik verklaar hierbij op voor mij duidelijke wijze te zijn ingelicht over het onderzoek kleurherkenning van de Universiteit van Amsterdam, Faculteit der Geesteswetenschappen uitgevoerd door Francijn Keur, Faust Stierman en  Joran Paap onder begeleiding van Hernán Labbé Grunberg, zoals uiteengezet in de informatiebrochure. Mijn vragen zijn naar tevredenheid beantwoord. 
+
+Ik stem geheel vrijwillig in met deelname aan dit onderzoek. Ik behoud daarbij het recht deze instemming weer in te trekken zonder dat ik daarvoor een reden hoef op te geven. Ik besef dat ik op elk moment mag stoppen met het onderzoek en tot 8 dagen na het onderzoek mijn deelname alsnog kan intrekken. In het geval dat ik mijn deelname staak of toestemming intrek zullen alle tot dan toe verzamelde gegevens definitief worden verwijderd. 
+
+Indien mijn onderzoeksresultaten gebruikt zullen worden in wetenschappelijke publicaties, dan wel op een andere manier openbaar worden gemaakt, zal dit volledig geanonimiseerd gebeuren. Mijn persoonsgegevens zullen niet door derden worden ingezien zonder mijn uitdrukkelijke toestemming.
+
+Als ik nog verdere informatie over het onderzoek zou willen krijgen, nu of in de toekomst, kan ik me wenden tot Francijn Keur, Faust Stierman of Joran Paap (e-mail: francijn.keur@student.uva.nl, faust.stierman@student.uva.nl, joran.paap@student.uva.nl). 
+
+Met eventuele klachten over dit onderzoek kan ik me wenden tot de secretaris van de Commissie Ethiek van de Faculteit Geesteswetenschappen van de Universiteit van Amsterdam; email: commissie-ethiek-fgw@uva.nl; telefoon: +31 20 - 525 3054; Kloveniersburgwal 48, 1012 CX Amsterdam.’
+
+`;
+
+this.centerBlockStart();
+this.addTextBlockWithConsent(
+{
+     editable:false,
+     consentButtonID:'consent', consentButtonText:'Accept', consentButtonColor:'Green', consentButtonBackColor:'White', consentButtonFontSize:24,
+     consentButtonWidth:'100px', consentButtonHeight:'30px', consentButtonMargin:'20px 0px 0px 0px;',
+     declineButtonID:'decline', declineButtonText:'Decline', declineButtonColor:'Red', declineButtonBackColor:'White', declineButtonFontSize:24,
+     declineButtonWidth:'100px', declineButtonHeight:'30px', declineButtonMargin:'20px 100px 0px 0px;',
+
+     controlMargin:this.cY(0.1).toString() + 'px auto 0px auto', id:'textInputConsent1',
+     controlText: text, controlWidth:this.cX(0.3) + 'px', controlHeight:this.cY(0.7)+'px', controlForeColor:'Black', controlBackColor:'WhiteSmoke',
+     controlHorizAlign:'left', controlPadding:'10px 10px 10px 10px'
+});
+
+this.centerBlockEnd();
+this.insertHTML();
+
+<Finish>
+   if (this.getButtonPressed()=== 'decline')
+   {
+        this.setUserData('declined', 'true');
+        this.saveResults();
+        this.experiment.save();
+   }
+   else
+   {
+   if (document.getElementById("adult").checked &&
+        document.getElementById("native").checked &&
+        document.getElementById("education").checked)
+           this.setStatus(Page.Status.ENDED);
+        else throw "<br><br>Not all checkboxes where populated, participant can't take part, so experiment will end.";
+   }
+</Finish>
