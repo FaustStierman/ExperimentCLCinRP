@@ -1,0 +1,4 @@
+subject	consent.end	consent.endType	consent.keyPressed	consent.offset	consent.onset	consent.rt	consent.start	vragen.Answer1	vragen.Answer2	vragen.Answer3	vragen.Answer4	vragen.Count	vragen.Feedback	vragen.fileName	vragen.index	vragen.Question	vragen.SubmitText	vragen.toonVragen.end	vragen.toonVragen.endType	vragen.toonVragen.mouseClicked	vragen.toonVragen.multiSelection1.selection1	vragen.toonVragen.offset	vragen.toonVragen.onset	vragen.toonVragen.rt	vragen.toonVragen.selected	vragen.toonVragen.start	vragen.Type	
+9	4968	KEYPRESSED	{SPACE}	4968	3366	1602	3350																					
+9								man	vrouw	anders	zeg ik liever niet	4	1000	lists/vragen.txt	1	Wat is  je gender?		8945	MOUSECLICKED	[1]	1	7935	4982	2953	multiSelection1	4968	RadioButton	
+9								ja	nee			2	1000		2	Ben je kleurenblind?		12105	MOUSECLICKED	[1]	2	11101	8963	2138	multiSelection1	8946	RadioButton	

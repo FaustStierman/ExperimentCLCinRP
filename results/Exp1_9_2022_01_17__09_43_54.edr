@@ -1,0 +1,94 @@
+subject	code2.end	code2.offset	code2.onset	code2.start	consent.end	consent.endType	consent.mouseClicked	consent.offset	consent.onset	consent.rt	consent.start	einde.end	einde.endType	einde.keyPressed	einde.offset	einde.onset	einde.rt	einde.start	einde.text8.text	fixatieKruis.end	fixatieKruis.endType	fixatieKruis.offset	fixatieKruis.onset	fixatieKruis.rt	fixatieKruis.start	preTrail.end	preTrail.offset	preTrail.onset	preTrail.start	startTrail.end	startTrail.endType	startTrail.keyPressed	startTrail.offset	startTrail.onset	startTrail.rt	startTrail.start	startTrail.text12.text	testItemN.end	testItemN.endType	testItemN.keyPressed	testItemN.offset	testItemN.onset	testItemN.picture1.picture	testItemN.rt	testItemN.start	uitleg.end	uitleg.endType	uitleg.keyPressed	uitleg.offset	uitleg.onset	uitleg.picture5.picture	uitleg.rt	uitleg.start	voorbeelden.afbeelding	voorbeelden.fileName	voorbeelden.index	voorbeelden.toonVoorbeeld.end	voorbeelden.toonVoorbeeld.endType	voorbeelden.toonVoorbeeld.keyPressed	voorbeelden.toonVoorbeeld.offset	voorbeelden.toonVoorbeeld.onset	voorbeelden.toonVoorbeeld.picture2.picture	voorbeelden.toonVoorbeeld.rt	voorbeelden.toonVoorbeeld.start	voorbeelden.toonVoorbeeld.text9.text	vragen.Answer1	vragen.Answer2	vragen.Answer3	vragen.Answer4	vragen.Count	vragen.Feedback	vragen.fileName	vragen.index	vragen.Question	vragen.SubmitText	vragen.toonVragen.end	vragen.toonVragen.endType	vragen.toonVragen.mouseClicked	vragen.toonVragen.multiSelection1.selection1	vragen.toonVragen.offset	vragen.toonVragen.onset	vragen.toonVragen.rt	vragen.toonVragen.selected	vragen.toonVragen.start	vragen.Type	
+9					49018	MOUSECLICKED	[1]	49018	12270	36748	12252																																																																											
+9																																																																		man	vrouw	anders	zeg ik liever niet	4	1000	lists/vragen.txt	1	Wat is  je gender?		114018	MOUSECLICKED	[1]	1	113011	49055	63956	multiSelection1	49019	RadioButton	
+9																																																																		ja	nee			2	1000		2	Ben je kleurenblind?		173171	MOUSECLICKED	[1]	2	172157	114035	58122	multiSelection1	114018	RadioButton	
+9																																														223844	KEYPRESSED	{SPACE}	223844	173201	pics/uitleg.png	50643	173171																																	
+9																																																						voorbeeld1	lists/voorbeelden.tsv	1	229290	KEYPRESSED	{LEFT}	229290	223866	pics/voorbeeld1.bmp	5424	223845	Voorbeeld 1#Mat...																					
+9																																																						voorbeeld2		2	230602	KEYPRESSED	{RIGHT}	230602	229316	pics/voorbeeld2.bmp	1286	229290	Voorbeeld 2#Mat...																					
+9																																																						voorbeeld3		3	234583	KEYPRESSED	{LEFT}	234583	230633	pics/voorbeeld3.bmp	3950	230602	Voorbeeld 3#Mat...																					
+9																														276721	KEYPRESSED	{SPACE}	276721	234600	42121	234583	Dat waren de oe...																																																	
+9																										276721	276721	276721	276721																																																									
+9																				277232	DURATION	277232	276732	-1	276721																																																													
+9																																						287321	KEYPRESSED	{RIGHT}	287321	277265	pics/controle1.bmp	10056	277232																																									
+9	287322	287322	287322	287322																																																																																		
+9																										287322	287322	287322	287322																																																									
+9																				287832	DURATION	287832	287332	-1	287322																																																													
+9																																						289513	KEYPRESSED	{LEFT}	289513	287850	pics/controle2.bmp	1663	287832																																									
+9	289513	289513	289513	289513																																																																																		
+9																										289513	289513	289513	289513																																																									
+9																				290018	DURATION	290018	289518	-1	289513																																																													
+9																																						290743	KEYPRESSED	{RIGHT}	290743	290049	pics/controle3.bmp	694	290018																																									
+9	290743	290743	290743	290743																																																																																		
+9																										290743	290743	290743	290743																																																									
+9																				291249	DURATION	291249	290749	-1	290743																																																													
+9																																						292105	KEYPRESSED	{RIGHT}	292105	291267	pics/controle4.bmp	838	291249																																									
+9	292105	292105	292105	292105																																																																																		
+9																										292105	292105	292105	292105																																																									
+9																				292616	DURATION	292616	292116	-1	292105																																																													
+9																																						293090	KEYPRESSED	{LEFT}	293090	292634	pics/controle5.bmp	456	292616																																									
+9	293090	293090	293090	293090																																																																																		
+9																										293090	293090	293090	293090																																																									
+9																				293616	DURATION	293616	293116	-1	293091																																																													
+9																																						294257	KEYPRESSED	{LEFT}	294257	293649	pics/controle6.bmp	608	293616																																									
+9	294257	294257	294257	294257																																																																																		
+9																										294257	294257	294257	294257																																																									
+9																				294765	DURATION	294765	294265	-1	294257																																																													
+9																																						295241	KEYPRESSED	{RIGHT}	295241	294782	pics/controle7.bmp	459	294765																																									
+9	295241	295241	295241	295241																																																																																		
+9																										295242	295242	295241	295241																																																									
+9																				295749	DURATION	295749	295249	-1	295242																																																													
+9																																						296248	KEYPRESSED	{LEFT}	296248	295782	pics/abstract1.bmp	466	295749																																									
+9	296248	296248	296248	296248																																																																																		
+9																										296249	296249	296248	296248																																																									
+9																				296766	DURATION	296766	296266	-1	296249																																																													
+9																																						301568	KEYPRESSED	{LEFT}	301568	296782	pics/abstract2.bmp	4786	296766																																									
+9	301568	301568	301568	301568																																																																																		
+9																										301568	301568	301568	301568																																																									
+9																				302082	DURATION	302082	301582	-1	301568																																																													
+9																																						303146	KEYPRESSED	{LEFT}	303146	302099	pics/abstract3.bmp	1047	302082																																									
+9	303147	303147	303147	303147																																																																																		
+9																										303147	303147	303147	303147																																																									
+9																				303648	DURATION	303648	303148	-1	303147																																																													
+9																																						304389	KEYPRESSED	{RIGHT}	304389	303666	pics/abstract4.bmp	723	303648																																									
+9	304389	304389	304389	304389																																																																																		
+9																										304389	304389	304389	304389																																																									
+9																				304899	DURATION	304899	304399	-1	304389																																																													
+9																																						306176	KEYPRESSED	{LEFT}	306175	304915	pics/abstract5.bmp	1260	304899																																									
+9	306176	306176	306176	306176																																																																																		
+9																										306176	306176	306176	306176																																																									
+9																				306682	DURATION	306682	306182	-1	306176																																																													
+9																																						312707	KEYPRESSED	{LEFT}	312707	306715	pics/abstract6.bmp	5992	306682																																									
+9	312707	312707	312707	312707																																																																																		
+9																										312708	312708	312707	312707																																																									
+9																				313216	DURATION	313216	312716	-1	312708																																																													
+9																																						314269	KEYPRESSED	{LEFT}	314269	313232	pics/abstract7.bmp	1037	313216																																									
+9	314269	314269	314269	314269																																																																																		
+9																										314270	314270	314269	314269																																																									
+9																				314782	DURATION	314782	314282	-1	314270																																																													
+9																																						315761	KEYPRESSED	{LEFT}	315761	314799	pics/iconisch1.bmp	962	314782																																									
+9	315761	315761	315761	315761																																																																																		
+9																										315761	315761	315761	315761																																																									
+9																				316265	DURATION	316265	315765	-1	315761																																																													
+9																																						316993	KEYPRESSED	{RIGHT}	316993	316282	pics/iconisch2.bmp	711	316265																																									
+9	316993	316993	316993	316993																																																																																		
+9																										316993	316993	316993	316993																																																									
+9																				317499	DURATION	317499	316999	-1	316993																																																													
+9																																						318378	KEYPRESSED	{RIGHT}	318378	317516	pics/iconisch3.bmp	862	317499																																									
+9	318378	318378	318378	318378																																																																																		
+9																										318378	318378	318378	318378																																																									
+9																				318882	DURATION	318882	318382	-1	318378																																																													
+9																																						319781	KEYPRESSED	{LEFT}	319781	318899	pics/iconisch4.bmp	882	318882																																									
+9	319781	319781	319781	319781																																																																																		
+9																										319781	319781	319781	319781																																																									
+9																				320299	DURATION	320299	319799	-1	319781																																																													
+9																																						320961	KEYPRESSED	{LEFT}	320961	320333	pics/iconisch5.bmp	628	320299																																									
+9	320961	320961	320961	320961																																																																																		
+9																										320962	320962	320961	320961																																																									
+9																				321465	DURATION	321465	320965	-1	320962																																																													
+9																																						322171	KEYPRESSED	{RIGHT}	322171	321481	pics/iconisch6.bmp	690	321465																																									
+9	322171	322171	322171	322171																																																																																		
+9																										322171	322171	322171	322171																																																									
+9																				322699	DURATION	322699	322199	-1	322171																																																													
+9																																						323520	KEYPRESSED	{LEFT}	323520	322733	pics/iconisch7.bmp	787	322699																																									
+9	323520	323520	323520	323520																																																																																		
+9												420549	KEYPRESSED	{SPACE}	420549	323533	97016	323520	Namens Faust, F...																																																																			

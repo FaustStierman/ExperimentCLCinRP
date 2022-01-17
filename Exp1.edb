@@ -36,7 +36,7 @@ String currentItem;
    <init>
 setGraphicsDriver(GraphicsDriver.OPENGL_NVG);
 
-setFullScreen(true);
+setFullScreen(false);
 //setFullScreen(false);
 setScreenWidth(1000);
 setScreenHeight(0);   //0 -> keep aspect ratio, calculate height
@@ -185,7 +185,7 @@ this.insertHTML();
       <list>
          <listParams>
             Name= vragen
-this.setRandomization(UserList.Randomization.RANDOM); //RANDOM, SEQUENTIAL
+this.setRandomization(UserList.Randomization.SEQUENTIAL); //RANDOM, SEQUENTIAL
 this.loadList("lists/vragen.txt");
 //this.setListStatus("TEST1");
 
@@ -199,8 +199,8 @@ this.loadList("lists/vragen.txt");
 this.setDuration(-1);
 this.setKeyboard("{SPACE}");
 this.setKeyboardCanEndPage(true);
-this.setMouseDownEnabled(false);
-this.setMouseCanEndPage(true);
+this.setMouseDownEnabled(true);
+this.setMouseCanEndPage(false);
 this.setValidClicksOnly(true);
 this.setBackColor(Color.GRAY);
 this.setTransparent(false);
@@ -210,146 +210,146 @@ this.setTransparent(false);
 //this.setMouseDownEnabled(true);
 //this.setMouseCanEndPage(true);
 //this.setValidClicksOnly(true);
-multiSelection2 = new MultiSelectionControl("multiSelection2");
-multiSelection2.setListParent(this.getParent());
-multiSelection2.setPageParent(this);
-multiSelection2.setType("[Type]");
-multiSelection2.setCount("[Count]");
-multiSelection2.setFeedback("[Feedback]");
+multiSelection1 = new MultiSelectionControl("multiSelection1");
+multiSelection1.setListParent(this.getParent());
+multiSelection1.setPageParent(this);
+multiSelection1.setType("[Type]");
+multiSelection1.setCount("[Count]");
+multiSelection1.setFeedback("[Feedback]");
 
 //Question, used for all subcontrols
-multiSelection2.setQuestion("[Question]");
-multiSelection2.setQuestionFont("Roboto-Regular", Font.BOLD, 36);
-multiSelection2.setQuestionForeColor(Color.WHITE);
-//multiSelection2.setQuestionBackColor(Color.LIGHT_GRAY);
-multiSelection2.setQuestionBorderWidth(0);
-multiSelection2.setQuestionBorderColor(Color.BLACK);
-multiSelection2.setQuestionOffsetY(20);
-multiSelection2.setQuestionDrawBackColorNarrow(true);
-multiSelection2.setQuestionBackColorMarginHorizVert(5, 5);
+multiSelection1.setQuestion("[Question]");
+multiSelection1.setQuestionFont("Roboto-Regular", Font.BOLD, 36);
+multiSelection1.setQuestionForeColor(Color.WHITE);
+//multiSelection1.setQuestionBackColor(Color.LIGHT_GRAY);
+multiSelection1.setQuestionBorderWidth(0);
+multiSelection1.setQuestionBorderColor(Color.BLACK);
+multiSelection1.setQuestionOffsetY(20);
+multiSelection1.setQuestionDrawBackColorNarrow(true);
+multiSelection1.setQuestionBackColorMarginHorizVert(5, 5);
 
 //Selection -> radiobuttons/checkboxes/other (text input)
-multiSelection2.selection_setX(0.1); multiSelection2.selection_setXAlign(BaseControl.XAlign.LEFT);
-multiSelection2.selection_setY(0.2); multiSelection2.selection_setYAlign(BaseControl.YAlign.TOP);
-multiSelection2.setWidth(0.3);
-multiSelection2.selection_setDirection(SelectionControl.Direction.VERTICAL);
-multiSelection2.selection_setHorizAlign(TextControl.HorizAlign.LEFT);
-multiSelection2.selection_setAnswers("Answer"); //Main header of answers, e.g. Answer -> Answer1, Answer2, ...
-multiSelection2.selection_setAnswersFont("Roboto-Regular", Font.PLAIN, 24);
-multiSelection2.selection_setAnswersForeColor(Color.WHITE);
-multiSelection2.selection_setAnswersOffsetXBefore(20); //space before selection control
-multiSelection2.selection_setAnswersOffsetXAfter(30); //space between selection and answer control
-multiSelection2.selection_setAnswersOffsetX(150); //space between answers when Directon = 'Horizontal'
-multiSelection2.selection_setAnswersOffsetY(30); //line space between answers when Direction = 'Vertical'
-multiSelection2.selection_setSelRadius(12);
-multiSelection2.selection_setSelBackColor(Color.WHITE);
-multiSelection2.selection_setSelLineWidth(1);
-multiSelection2.selection_setSelLineColor(Color.WHITE);
-multiSelection2.selection_setSelectedBackColor(Color.BLACK);
+multiSelection1.selection_setX(0.1); multiSelection1.selection_setXAlign(BaseControl.XAlign.LEFT);
+multiSelection1.selection_setY(0.2); multiSelection1.selection_setYAlign(BaseControl.YAlign.TOP);
+multiSelection1.setWidth(0.3);
+multiSelection1.selection_setDirection(SelectionControl.Direction.VERTICAL);
+multiSelection1.selection_setHorizAlign(TextControl.HorizAlign.LEFT);
+multiSelection1.selection_setAnswers("Answer"); //Main header of answers, e.g. Answer -> Answer1, Answer2, ...
+multiSelection1.selection_setAnswersFont("Roboto-Regular", Font.PLAIN, 24);
+multiSelection1.selection_setAnswersForeColor(Color.WHITE);
+multiSelection1.selection_setAnswersOffsetXBefore(20); //space before selection control
+multiSelection1.selection_setAnswersOffsetXAfter(30); //space between selection and answer control
+multiSelection1.selection_setAnswersOffsetX(150); //space between answers when Directon = 'Horizontal'
+multiSelection1.selection_setAnswersOffsetY(30); //line space between answers when Direction = 'Vertical'
+multiSelection1.selection_setSelRadius(12);
+multiSelection1.selection_setSelBackColor(Color.WHITE);
+multiSelection1.selection_setSelLineWidth(1);
+multiSelection1.selection_setSelLineColor(Color.BLACK);
+multiSelection1.selection_setSelectedBackColor(Color.BLACK);
 
 //SetOtherxxx -> Last item will be input box
-multiSelection2.selection_setOtherText("");
-multiSelection2.selection_setOtherOffsetX(0); //set 0 for x-Alignment with other answers
-multiSelection2.selection_setOtherOffsetY(15); 
-multiSelection2.selection_setOtherWidth(0.25);
-multiSelection2.selection_setOtherFont("Roboto-Regular", Font.PLAIN, 24);
-multiSelection2.selection_setOtherForeColor(Color.WHITE);
-multiSelection2.selection_setOtherBackColor(Color.BLUE);
-multiSelection2.selection_setOtherBorderWidth(1);
-multiSelection2.selection_setOtherBorderColor(Color.BLACK);
-multiSelection2.selection_setOtherBackColorMarginHorizVert(1, 1);
+multiSelection1.selection_setOtherText("");
+multiSelection1.selection_setOtherOffsetX(0); //set 0 for x-Alignment with other answers
+multiSelection1.selection_setOtherOffsetY(15); 
+multiSelection1.selection_setOtherWidth(0.25);
+multiSelection1.selection_setOtherFont("Roboto-Regular", Font.PLAIN, 24);
+multiSelection1.selection_setOtherForeColor(Color.WHITE);
+multiSelection1.selection_setOtherBackColor(Color.BLUE);
+multiSelection1.selection_setOtherBorderWidth(1);
+multiSelection1.selection_setOtherBorderColor(Color.BLACK);
+multiSelection1.selection_setOtherBackColorMarginHorizVert(1, 1);
 
 //Button will confirm selection
-multiSelection2.button_setText("[SubmitText]");
-multiSelection2.button_setX(0.7); multiSelection2.button_setXAlign(BaseControl.XAlign.CENTER);
-multiSelection2.button_setY(0.8); multiSelection2.button_setYAlign(BaseControl.YAlign.CENTER);
-multiSelection2.button_setWidth(100);
-multiSelection2.button_setHeight(75);
-multiSelection2.button_setForeColor(Color.WHITE);
-multiSelection2.button_setBackColor(Color.LIGHT_GRAY);
-multiSelection2.button_setSelectedBackColor(Color.BLUE);
-multiSelection2.button_setFont("Roboto-Regular", Font.PLAIN, 24);
+multiSelection1.button_setText("[SubmitText]");
+multiSelection1.button_setX(0.7); multiSelection1.button_setXAlign(BaseControl.XAlign.CENTER);
+multiSelection1.button_setY(0.8); multiSelection1.button_setYAlign(BaseControl.YAlign.CENTER);
+multiSelection1.button_setWidth(100);
+multiSelection1.button_setHeight(75);
+multiSelection1.button_setForeColor(Color.BLACK);
+multiSelection1.button_setBackColor(Color.LIGHT_GRAY);
+multiSelection1.button_setSelectedBackColor(Color.BLUE);
+multiSelection1.button_setFont("Roboto-Regular", Font.PLAIN, 24);
 
 //Dropdown list
-multiSelection2.list_setList("Answer");
-multiSelection2.list_setX(0.1); multiSelection2.list_setXAlign(BaseControl.XAlign.LEFT);
-multiSelection2.list_setY(0.2); multiSelection2.list_setYAlign(BaseControl.YAlign.TOP);
-multiSelection2.list_setWidth(0.75);
-multiSelection2.list_setListWidth(0.35);
-multiSelection2.list_setListFont("Roboto-Regular", Font.PLAIN, 18);
-multiSelection2.list_setListForeColor(Color.WHITE);
-multiSelection2.list_setListBackColor(Color.LIGHT_GRAY);
-multiSelection2.list_setListBorderWidth(1);
-multiSelection2.list_setListBorderColor(Color.BLACK);
-multiSelection2.list_setSelectionBackColor(Color.GRAY);
-multiSelection2.list_setSelectedBackColor(Color.BLUE);
+multiSelection1.list_setList("Answer");
+multiSelection1.list_setX(0.1); multiSelection1.list_setXAlign(BaseControl.XAlign.LEFT);
+multiSelection1.list_setY(0.2); multiSelection1.list_setYAlign(BaseControl.YAlign.TOP);
+multiSelection1.list_setWidth(0.75);
+multiSelection1.list_setListWidth(0.35);
+multiSelection1.list_setListFont("Roboto-Regular", Font.PLAIN, 18);
+multiSelection1.list_setListForeColor(Color.BLACK);
+multiSelection1.list_setListBackColor(Color.LIGHT_GRAY);
+multiSelection1.list_setListBorderWidth(1);
+multiSelection1.list_setListBorderColor(Color.BLACK);
+multiSelection1.list_setSelectionBackColor(Color.GRAY);
+multiSelection1.list_setSelectedBackColor(Color.BLUE);
 
 //Rating
-multiSelection2.rating_setX(0.1); multiSelection2.rating_setXAlign(BaseControl.XAlign.LEFT);
-multiSelection2.rating_setY(0.2); multiSelection2.rating_setYAlign(BaseControl.YAlign.TOP);
-multiSelection2.rating_setQuestionAlign(BaseControl.QuestionAlign.LEFT);
-multiSelection2.rating_setGeometry(RatingControl.Geometry.CIRCLE); //SQUARE, CIRCLE
-multiSelection2.rating_setRatingLeft("Not sure");
-multiSelection2.rating_setRatingRight("Very sure");
-multiSelection2.rating_setRatingFont("Roboto-Regular", Font.PLAIN, 24);
-multiSelection2.rating_setRatingForeColor(Color.BLACK);
-multiSelection2.rating_setRatingOffsetY(50);
-multiSelection2.rating_setAnswers("Answer"); //no spaces
-multiSelection2.rating_setAnswersFont("Roboto-Regular", Font.PLAIN, 18);
-multiSelection2.rating_setAnswersForeColor(Color.BLACK);
-multiSelection2.rating_setAnswersOffsetX(50); //space between answers
-multiSelection2.rating_setSelRadius(12);
-multiSelection2.rating_setSelBackColor(Color.BLUE);
-multiSelection2.rating_setSelLineWidth(1);
-multiSelection2.rating_setSelLineColor(Color.BLACK);
-multiSelection2.rating_setSelectedBackColor(Color.BLACK);
+multiSelection1.rating_setX(0.1); multiSelection1.rating_setXAlign(BaseControl.XAlign.LEFT);
+multiSelection1.rating_setY(0.2); multiSelection1.rating_setYAlign(BaseControl.YAlign.TOP);
+multiSelection1.rating_setQuestionAlign(BaseControl.QuestionAlign.LEFT);
+multiSelection1.rating_setGeometry(RatingControl.Geometry.CIRCLE); //SQUARE, CIRCLE
+multiSelection1.rating_setRatingLeft("Not sure");
+multiSelection1.rating_setRatingRight("Very sure");
+multiSelection1.rating_setRatingFont("Roboto-Regular", Font.PLAIN, 24);
+multiSelection1.rating_setRatingForeColor(Color.BLACK);
+multiSelection1.rating_setRatingOffsetY(50);
+multiSelection1.rating_setAnswers("Answer"); //no spaces
+multiSelection1.rating_setAnswersFont("Roboto-Regular", Font.PLAIN, 18);
+multiSelection1.rating_setAnswersForeColor(Color.BLACK);
+multiSelection1.rating_setAnswersOffsetX(50); //space between answers
+multiSelection1.rating_setSelRadius(12);
+multiSelection1.rating_setSelBackColor(Color.BLUE);
+multiSelection1.rating_setSelLineWidth(1);
+multiSelection1.rating_setSelLineColor(Color.BLACK);
+multiSelection1.rating_setSelectedBackColor(Color.BLACK);
 
 //Slider
-multiSelection2.slider_setX(0.1); multiSelection2.slider_setXAlign(BaseControl.XAlign.LEFT);
-multiSelection2.slider_setY(0.3); multiSelection2.slider_setYAlign(BaseControl.YAlign.TOP);
-multiSelection2.slider_setWidth(0.5);
-multiSelection2.slider_setHeight(40);
-multiSelection2.slider_setQuestionAlign(BaseControl.QuestionAlign.LEFT);
-multiSelection2.slider_setBackColor(Color.DARK_GRAY);
-multiSelection2.slider_setBeforeSelectColor(Color.WHITE);
-multiSelection2.slider_setKnobColor(Color.BLUE);
-multiSelection2.slider_setKnobLineColor(Color.BLACK);
-multiSelection2.slider_setKnobLineWidth(0);
-multiSelection2.slider_setLabelShow(true);
-multiSelection2.slider_setLabelWidth(100);
-multiSelection2.slider_setLabelHeight(30);
-multiSelection2.slider_setLabelColor(Color.BLUE);
-multiSelection2.slider_setLabelFont("Roboto-Regular", Font.PLAIN, 14);
-multiSelection2.slider_setLabelOffset(20);
-multiSelection2.slider_setMinValue("[Answer1]");
-multiSelection2.slider_setMaxValue("[Answer2]");
-multiSelection2.slider_setPos("[Answer3]");
-multiSelection2.slider_setUseValidation(true);
+multiSelection1.slider_setX(0.1); multiSelection1.slider_setXAlign(BaseControl.XAlign.LEFT);
+multiSelection1.slider_setY(0.3); multiSelection1.slider_setYAlign(BaseControl.YAlign.TOP);
+multiSelection1.slider_setWidth(0.5);
+multiSelection1.slider_setHeight(40);
+multiSelection1.slider_setQuestionAlign(BaseControl.QuestionAlign.LEFT);
+multiSelection1.slider_setBackColor(Color.DARK_GRAY);
+multiSelection1.slider_setBeforeSelectColor(Color.WHITE);
+multiSelection1.slider_setKnobColor(Color.BLUE);
+multiSelection1.slider_setKnobLineColor(Color.BLACK);
+multiSelection1.slider_setKnobLineWidth(0);
+multiSelection1.slider_setLabelShow(true);
+multiSelection1.slider_setLabelWidth(100);
+multiSelection1.slider_setLabelHeight(30);
+multiSelection1.slider_setLabelColor(Color.BLUE);
+multiSelection1.slider_setLabelFont("Roboto-Regular", Font.PLAIN, 14);
+multiSelection1.slider_setLabelOffset(20);
+multiSelection1.slider_setMinValue("[Answer1]");
+multiSelection1.slider_setMaxValue("[Answer2]");
+multiSelection1.slider_setPos("[Answer3]");
+multiSelection1.slider_setUseValidation(true);
 
 //Input textbox
-multiSelection2.textInput_setText("");
-multiSelection2.textInput_setX(0.1); multiSelection2.textInput_setXAlign(BaseControl.XAlign.LEFT);
-multiSelection2.textInput_setY(0.3); multiSelection2.textInput_setYAlign(BaseControl.YAlign.TOP);
-multiSelection2.textInput_setQuestionAlign(BaseControl.QuestionAlign.LEFT);
-multiSelection2.textInput_setWidth(0.35);
-multiSelection2.textInput_setQuestionOffsetY(5);
-multiSelection2.textInput_setForeColor(Color.WHITE);
-multiSelection2.textInput_setBackColor(Color.BLUE);
-multiSelection2.textInput_setFont("Roboto-Regular", Font.PLAIN, 24);
-multiSelection2.textInput_setBorderWidth(1);
-multiSelection2.textInput_setBorderColor(Color.BLACK);
-multiSelection2.textInput_setEndKey("");
-multiSelection2.textInput_setBackColorMarginHorizVert(1, 1);
+multiSelection1.textInput_setText("");
+multiSelection1.textInput_setX(0.1); multiSelection1.textInput_setXAlign(BaseControl.XAlign.LEFT);
+multiSelection1.textInput_setY(0.3); multiSelection1.textInput_setYAlign(BaseControl.YAlign.TOP);
+multiSelection1.textInput_setQuestionAlign(BaseControl.QuestionAlign.LEFT);
+multiSelection1.textInput_setWidth(0.35);
+multiSelection1.textInput_setQuestionOffsetY(5);
+multiSelection1.textInput_setForeColor(Color.WHITE);
+multiSelection1.textInput_setBackColor(Color.BLUE);
+multiSelection1.textInput_setFont("Roboto-Regular", Font.PLAIN, 24);
+multiSelection1.textInput_setBorderWidth(1);
+multiSelection1.textInput_setBorderColor(Color.BLACK);
+multiSelection1.textInput_setEndKey("");
+multiSelection1.textInput_setBackColorMarginHorizVert(1, 1);
 
-this.addControl(multiSelection2);
+this.addControl(multiSelection1);
 
      
 <Frame>
-   	this.multiSelection2.frame();
+   	this.multiSelection1.frame();
 </Frame>
 
 <Finish>
-     this.multiSelection2.finish();
+     this.multiSelection1.finish();
 </Finish>
             </pageControls>
          </page>
@@ -377,7 +377,7 @@ picture5.setHeight(1);
 //picture5.setRadius(15);
 picture5.setXAlign(BaseControl.XAlign.CENTER); //LEFT, CENTER, RIGHT
 picture5.setYAlign(BaseControl.YAlign.CENTER); //TOP, CENTER, BOTTOM
-picture5.setScale(PictureControl.Scale.STRETCH_ASPECTRATIO);  //NONE, STRETCH, STRETCH_ASPECTRATIO, WIDTH, HEIGHT
+picture5.setScale(PictureControl.Scale.NONE);  //NONE, STRETCH, STRETCH_ASPECTRATIO, WIDTH, HEIGHT
 picture5.setBorderWidth(0);
 picture5.setBorderColor(Color.BLUE);
 picture5.setZOrder(10);
@@ -540,22 +540,22 @@ this.setMouseCanEndPage(false);
 this.setValidClicksOnly(true);
 this.setBackColor(Color.GRAY);
 this.setTransparent(false);
-
-PictureControl picture4= new PictureControl("picture4");
-picture4.setPicture("pics/fixatieKruis.bmp");
-picture4.setX(0.5);
-picture4.setY(0.5);
-picture4.setWidth(0.8);
-picture4.setHeight(0.8);
-//picture4.setRadius(15);
-picture4.setXAlign(BaseControl.XAlign.CENTER); //LEFT, CENTER, RIGHT
-picture4.setYAlign(BaseControl.YAlign.CENTER); //TOP, CENTER, BOTTOM
-picture4.setScale(PictureControl.Scale.STRETCH_ASPECTRATIO);  //NONE, STRETCH, STRETCH_ASPECTRATIO, WIDTH, HEIGHT
-picture4.setBorderWidth(0);
-picture4.setBorderColor(Color.BLUE);
-picture4.setZOrder(10);
-picture4.setValidClick(false);
-this.addControl(picture4);
+//
+//PictureControl picture4= new PictureControl("picture4");
+//picture4.setPicture("pics/fixatieKruis.bmp");
+//picture4.setX(0.5);
+//picture4.setY(0.5);
+//picture4.setWidth(0.8);
+//picture4.setHeight(0.8);
+////picture4.setRadius(15);
+//picture4.setXAlign(BaseControl.XAlign.CENTER); //LEFT, CENTER, RIGHT
+//picture4.setYAlign(BaseControl.YAlign.CENTER); //TOP, CENTER, BOTTOM
+//picture4.setScale(PictureControl.Scale.STRETCH_ASPECTRATIO);  //NONE, STRETCH, STRETCH_ASPECTRATIO, WIDTH, HEIGHT
+//picture4.setBorderWidth(0);
+//picture4.setBorderColor(Color.BLUE);
+//picture4.setZOrder(10);
+//picture4.setValidClick(false);
+//this.addControl(picture4);
 
 
          </pageControls>
