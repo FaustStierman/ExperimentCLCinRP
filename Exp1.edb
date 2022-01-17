@@ -17,6 +17,13 @@
          Max= 10000
          DefaultValue= 
       </udparams>
+      <udparams>
+         Type= DropDown
+         Variable= Kleurenblind
+         Question= Ben je kleurenblind?
+         Items= Ja,Nee
+         DefaultIndex= 0
+      </udparams>
    </userdata>
    <resultHeaders>
 
@@ -36,7 +43,7 @@ String currentItem;
    <init>
 setGraphicsDriver(GraphicsDriver.OPENGL_NVG);
 
-setFullScreen(false);
+setFullScreen(true);
 //setFullScreen(false);
 setScreenWidth(1000);
 setScreenHeight(0);   //0 -> keep aspect ratio, calculate height
@@ -56,6 +63,22 @@ Debug.setDebugAction(Debug.DebugAction.USER); //NONE, USER, INTERNAL, USER_INTER
 
    </close>
    <pages>
+      <code>
+         <codeParams>
+            Name= Nietkleurenblind
+         </codeParams>
+         <codeText>
+if(Tools.equals(UserData.getItem("Kleurenblind"), "Ja")){
+	this.jumpTo("einde");
+	this.jumpToEndTrial();
+}
+
+//public static String right(String src, int count)
+//example-> int randInt= Tools.getRandomNumber(1, 10);
+
+
+         </codeText>
+      </code>
       <pageHtml>
          <pageParams>
             Name= consent
@@ -151,9 +174,9 @@ this.centerBlockStart();
 this.addTextBlockWithConsent(
 {
      editable:false,
-     consentButtonID:'consent', consentButtonText:'Accept', consentButtonColor:'Green', consentButtonBackColor:'White', consentButtonFontSize:24,
+     consentButtonID:'consent', consentButtonText:'Accepteren', consentButtonColor:'Green', consentButtonBackColor:'White', consentButtonFontSize:24,
      consentButtonWidth:'100px', consentButtonHeight:'30px', consentButtonMargin:'20px 0px 0px 0px;',
-     declineButtonID:'decline', declineButtonText:'Decline', declineButtonColor:'Red', declineButtonBackColor:'White', declineButtonFontSize:24,
+     declineButtonID:'decline', declineButtonText:'Weigeren', declineButtonColor:'Red', declineButtonBackColor:'White', declineButtonFontSize:24,
      declineButtonWidth:'100px', declineButtonHeight:'30px', declineButtonMargin:'20px 100px 0px 0px;',
 
      controlMargin:this.cY(0.1).toString() + 'px auto 0px auto', id:'textInputConsent1',
@@ -172,13 +195,8 @@ this.insertHTML();
         this.experiment.save();
    }
    else
-   {
-   if (document.getElementById("adult").checked &&
-        document.getElementById("native").checked &&
-        document.getElementById("education").checked)
            this.setStatus(Page.Status.ENDED);
-        else throw "<br><br>Not all checkboxes where populated, participant can't take part, so experiment will end.";
-   }
+
 </Finish>
          </pageControls>
       </pageHtml>
@@ -393,7 +411,7 @@ this.addControl(picture5);
          <listParams>
             Name= voorbeelden
 this.setRandomization(UserList.Randomization.SEQUENTIAL); //RANDOM, SEQUENTIAL
-this.loadList("lists/voorbeelden.tsv");
+this.loadList("lists/voorbeelden.txt");
 //this.setListStatus("TEST1");
 
 
@@ -489,7 +507,7 @@ text12.setHeight(0.5);
 text12.setXAlign(BaseControl.XAlign.CENTER); //LEFT, CENTER, RIGHT
 text12.setYAlign(BaseControl.YAlign.CENTER); //TOP, CENTER, BOTTOM
 text12.setFont("Roboto-Regular", Font.BOLD, 36); //PLAIN, BOLD, ITALIC
-text12.setForeColor(Color.BLACK);
+text12.setForeColor(Color.WHITE);
 //text12.setBackColor(Color.WHITE);
 text12.setHorizAlign(TextControl.HorizAlign.CENTER); //LEFT, CENTER, RIGHT
 text12.setVertAlign(TextControl.VertAlign.CENTER); //TOP, CENTER, BOTTOM
@@ -529,7 +547,7 @@ else if (Tools.modEquals(this.globals.seed + this.globals.setsCompleted, 3, 2)){
       </code>
       <page>
          <pageParams>
-            Name= fixatieKruis
+            Name= tussenPagina
          </pageParams>
          <pageControls>
 this.setDuration(500);
@@ -596,7 +614,7 @@ this.addControl(picture1);
       </page>
       <code>
          <codeParams>
-            Name= code2
+            Name= postTrail
          </codeParams>
          <codeText>
 this.globals.itemInSet += 1; 
@@ -606,10 +624,9 @@ if(Tools.equals(this.globals.itemInSet, 8))
 	//If a set has been completed 
 	this.globals.setsCompleted += 1;
 	this.globals.itemInSet = 1; 
-	Debug.writeLine(Tools.modEquals(this.globals.setsCompleted, 3, 0));
+	
 	if(Tools.modEquals(this.globals.setsCompleted, 3, 0))
 	{
-		Debug.writeLine("here");
 		// If three trails completed: jump to end 
 		this.jumpTo("einde");
 		this.jumpToEndTrial();
@@ -630,7 +647,7 @@ else{
             Name= einde
          </pageParams>
          <pageControls>
-this.setDuration(-1);
+this.setDuration(5000);
 this.setKeyboard("{SPACE}");
 this.setKeyboardCanEndPage(true);
 this.setMouseDownEnabled(false);
@@ -640,23 +657,48 @@ this.setBackColor(Color.GRAY);
 this.setTransparent(false);
 
 TextControl text8= new TextControl("text8");
+if(Tools.equals(UserData.getItem("Kleurenblind"), "Ja")){
+	text8.setText(String.join("\n",
+	"Ons onderzoek gaat over kleurherkenning.", 
+	"",
+	"Het is daarom niet mogelijk om mee te doen als je kleurenblind bent,", 
+	"excuses.",
+	"",
+	"voor vragen of op merkingen kan je mailen naar:", 
+	"",
+	"Faust.stierman@student.uva.nl", 
+	"",
+	"Francijn.Keur@student.uva.nl", 
+	"", 
+	"en", 
+	"",
+	"Joran.Paap@student.uva.nl",
+	"",
+	"Druk op spatie het experiment te beeindigen"));
+}
+
 //text8.setText("");
 //text8.setText(this.globals.allText.get("instr1Text"));
+else{
+	text8.setText(String.join("\n",
+	"Namens Faust, Francijn en Joran", 
+	"",
+	"Bedankt voor het meedoen aan ons experiment", 
+	"", 
+	"voor vragen of op merkingen kan je mailen naar:", 
+	"",
+	"Faust.stierman@student.uva.nl", 
+	"",
+	"Francijn.Keur@student.uva.nl", 
+	"", 
+	"en", 
+	"",
+	"Joran.Paap@student.uva.nl",
+	"",
+	"Druk op spatie het experiment te beeindigen"));
+	
+}
 
-text8.setText(String.join("\n",
-"Namens Faust, Francijn en Joran", 
-"",
-"Bedankt voor het meedoen aan ons experiment", 
-"", 
-"voor vragen of op merkingen kan je mailen naar:", 
-"",
-"Faust.stierman@student.uva.nl", 
-"",
-"Francijn.Keur@student.uva.nl", 
-"", 
-"en", 
-"Joran.Paap@student.uva.nl"
-));
 text8.setX(0.5);
 text8.setY(0.5);
 text8.setWidth(0.5);

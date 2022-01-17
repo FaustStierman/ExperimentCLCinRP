@@ -37,7 +37,7 @@ public class Exp1 extends ExperimentBuild
       try
       {
          new Init();
-         UserData userData= new UserData("[Type=Integer;Variable=subject;Question=Subject number;Min=1;Max=10000;DefaultValue=]");
+         UserData userData= new UserData("[Type=Integer;Variable=subject;Question=Subject number;Min=1;Max=10000;DefaultValue=],[Type=DropDown;Variable=Kleurenblind;Question=Ben je kleurenblind?;Items=Ja,Nee;DefaultIndex=0]");
          this.setTruncateListsEnabled(true);
          if (this.setup(this, "Exp1", userData))
          {
@@ -75,7 +75,7 @@ class Init extends Graphics
    {
 setGraphicsDriver(GraphicsDriver.OPENGL_NVG);
 
-setFullScreen(false);
+setFullScreen(true);
 //setFullScreen(false);
 setScreenWidth(1000);
 setScreenHeight(0);   //0 -> keep aspect ratio, calculate height
@@ -96,6 +96,29 @@ Debug.setDebugAction(Debug.DebugAction.USER); //NONE, USER, INTERNAL, USER_INTER
 public void close() throws Exception
 {
 
+}
+
+class Code_Nietkleurenblind extends Code
+{
+   Globals globals;
+   Code_Nietkleurenblind(ExperimentBuild experiment, UserList parent, Globals globals)
+   {
+      super("Nietkleurenblind", experiment, parent);
+      this.globals = globals;
+      this.pageParent = this;
+   }
+
+   @Override
+   public void load() throws Exception
+   {
+if(Tools.equals(UserData.getItem("Kleurenblind"), "Ja")){
+	this.jumpTo("einde");
+	this.jumpToEndTrial();
+}
+
+//public static String right(String src, int count)
+//example-> int randInt= Tools.getRandomNumber(1, 10);
+   }
 }
 
 class Page_consent extends Page
@@ -396,7 +419,7 @@ class List_voorbeelden extends UserList
      {
         this.setListParent(this);
 this.setRandomization(UserList.Randomization.SEQUENTIAL); //RANDOM, SEQUENTIAL
-this.loadList("lists/voorbeelden.tsv");
+this.loadList("lists/voorbeelden.txt");
 //this.setListStatus("TEST1");
 this.add(new Page_toonVoorbeeld(experiment, this, globals));
     }
@@ -517,7 +540,7 @@ text12.setHeight(0.5);
 text12.setXAlign(BaseControl.XAlign.CENTER); //LEFT, CENTER, RIGHT
 text12.setYAlign(BaseControl.YAlign.CENTER); //TOP, CENTER, BOTTOM
 text12.setFont("Roboto-Regular", Font.BOLD, 36); //PLAIN, BOLD, ITALIC
-text12.setForeColor(Color.BLACK);
+text12.setForeColor(Color.WHITE);
 //text12.setBackColor(Color.WHITE);
 text12.setHorizAlign(TextControl.HorizAlign.CENTER); //LEFT, CENTER, RIGHT
 text12.setVertAlign(TextControl.VertAlign.CENTER); //TOP, CENTER, BOTTOM
@@ -562,13 +585,13 @@ else if (Tools.modEquals(this.globals.seed + this.globals.setsCompleted, 3, 2)){
    }
 }
 
-class Page_fixatieKruis extends Page
+class Page_tussenPagina extends Page
 {
    Globals globals;
    UserList parent;
-   Page_fixatieKruis(ExperimentBuild experiment, UserList parent, Globals globals)
+   Page_tussenPagina(ExperimentBuild experiment, UserList parent, Globals globals)
    {
-      super("fixatieKruis", experiment, parent);
+      super("tussenPagina", experiment, parent);
       this.globals = globals;
       this.parent = parent;
       this.pageParent = this;
@@ -647,12 +670,12 @@ this.addControl(picture1);
    }
 }
 
-class Code_code2 extends Code
+class Code_postTrail extends Code
 {
    Globals globals;
-   Code_code2(ExperimentBuild experiment, UserList parent, Globals globals)
+   Code_postTrail(ExperimentBuild experiment, UserList parent, Globals globals)
    {
-      super("code2", experiment, parent);
+      super("postTrail", experiment, parent);
       this.globals = globals;
       this.pageParent = this;
    }
@@ -667,10 +690,9 @@ if(Tools.equals(this.globals.itemInSet, 8))
 	//If a set has been completed 
 	this.globals.setsCompleted += 1;
 	this.globals.itemInSet = 1; 
-	Debug.writeLine(Tools.modEquals(this.globals.setsCompleted, 3, 0));
+	
 	if(Tools.modEquals(this.globals.setsCompleted, 3, 0))
 	{
-		Debug.writeLine("here");
 		// If three trails completed: jump to end 
 		this.jumpTo("einde");
 		this.jumpToEndTrial();
@@ -713,23 +735,48 @@ this.setBackColor(Color.GRAY);
 this.setTransparent(false);
 
 text8 = new TextControl("text8");
+if(Tools.equals(UserData.getItem("Kleurenblind"), "Ja")){
+	text8.setText(String.join("\n",
+	"Ons onderzoek gaat over kleurherkenning.", 
+	"",
+	"Het is daarom niet mogelijk om mee te doen als je kleurenblind bent,", 
+	"excuses.",
+	"",
+	"voor vragen of op merkingen kan je mailen naar:", 
+	"",
+	"Faust.stierman@student.uva.nl", 
+	"",
+	"Francijn.Keur@student.uva.nl", 
+	"", 
+	"en", 
+	"",
+	"Joran.Paap@student.uva.nl",
+	"",
+	"Druk op spatie het experiment te beeindigen"));
+}
+
 //text8.setText("");
 //text8.setText(this.globals.allText.get("instr1Text"));
+else{
+	text8.setText(String.join("\n",
+	"Namens Faust, Francijn en Joran", 
+	"",
+	"Bedankt voor het meedoen aan ons experiment", 
+	"", 
+	"voor vragen of op merkingen kan je mailen naar:", 
+	"",
+	"Faust.stierman@student.uva.nl", 
+	"",
+	"Francijn.Keur@student.uva.nl", 
+	"", 
+	"en", 
+	"",
+	"Joran.Paap@student.uva.nl",
+	"",
+	"Druk op spatie het experiment te beeindigen"));
+	
+}
 
-text8.setText(String.join("\n",
-"Namens Faust, Francijn en Joran", 
-"",
-"Bedankt voor het meedoen aan ons experiment", 
-"", 
-"voor vragen of op merkingen kan je mailen naar:", 
-"",
-"Faust.stierman@student.uva.nl", 
-"",
-"Francijn.Keur@student.uva.nl", 
-"", 
-"en", 
-"Joran.Paap@student.uva.nl"
-));
 text8.setX(0.5);
 text8.setY(0.5);
 text8.setWidth(0.5);
@@ -757,15 +804,16 @@ public void createExperiment() throws Exception
 {
 this.setPageColor(Color.WHITE);
 globals= new Globals(this.graphics);
+flow.addCode(new Code_Nietkleurenblind(this, null, globals));
 flow.addPage(new Page_consent(this, null, globals));
 flow.addList(new List_vragen(this, null, globals));
 flow.addPage(new Page_uitleg(this, null, globals));
 flow.addList(new List_voorbeelden(this, null, globals));
 flow.addPage(new Page_startTrail(this, null, globals));
 flow.addCode(new Code_preTrail(this, null, globals));
-flow.addPage(new Page_fixatieKruis(this, null, globals));
+flow.addPage(new Page_tussenPagina(this, null, globals));
 flow.addPage(new Page_testItemN(this, null, globals));
-flow.addCode(new Code_code2(this, null, globals));
+flow.addCode(new Code_postTrail(this, null, globals));
 flow.addPage(new Page_einde(this, null, globals));
 }
 
