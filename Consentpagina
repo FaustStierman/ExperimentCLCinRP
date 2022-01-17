@@ -1,3 +1,35 @@
+this.setDuration(-1);
+this.setKeyboard("");
+this.setMouseDownEnabled(true);
+this.setMouseCanEndPage(false);
+this.setValidClicksOnly(false);
+this.setBackColor(Color.GRAY);
+this.setTransparent(false);
+
+/*
+//flexBlockStart() can be used e.g. to create a left offset: all controls will be left aligned (in example: 50px)
+this.flexBlockStart({id:'blockConsent1', flexDirection:'column', flexJustify:'space-between', margin:'10px 10px 10px 50px'}); //top right bottom left });
+
+   this.spaceBlock({height:'20px'}); //gves space between controls in vertical direction, height in pixels.
+
+
+   //possible control can go here
+
+
+   this.spaceBlock({height:'20px'}); //gives space between controls in vertical direction, height in pixels.
+
+
+   //possible control can go here
+
+
+   //this.appendHTML("<b>Plain html code</b>"); //this command gives the option to add all kind of existings html commands
+
+this.flexBlockEnd(); //flexBlock will end here
+
+this.insertHTML(); //this will insert the temporary code to the page (needed!).
+
+*/
+   
 //Take care that backtick is at begin/end -> `
 //Remove text, copy/paste from text/Word document and use toString in menu to format it correctly (appending <br>)
 //Use rightclick->Formatting->Remove linebreaks to put the checkboxes on a single line.
@@ -56,9 +88,9 @@ this.centerBlockStart();
 this.addTextBlockWithConsent(
 {
      editable:false,
-     consentButtonID:'consent', consentButtonText:'Accept', consentButtonColor:'Green', consentButtonBackColor:'White', consentButtonFontSize:24,
+     consentButtonID:'consent', consentButtonText:'Accepteren', consentButtonColor:'Green', consentButtonBackColor:'White', consentButtonFontSize:24,
      consentButtonWidth:'100px', consentButtonHeight:'30px', consentButtonMargin:'20px 0px 0px 0px;',
-     declineButtonID:'decline', declineButtonText:'Decline', declineButtonColor:'Red', declineButtonBackColor:'White', declineButtonFontSize:24,
+     declineButtonID:'decline', declineButtonText:'Weigeren', declineButtonColor:'Red', declineButtonBackColor:'White', declineButtonFontSize:24,
      declineButtonWidth:'100px', declineButtonHeight:'30px', declineButtonMargin:'20px 100px 0px 0px;',
 
      controlMargin:this.cY(0.1).toString() + 'px auto 0px auto', id:'textInputConsent1',
@@ -77,11 +109,6 @@ this.insertHTML();
         this.experiment.save();
    }
    else
-   {
-   if (document.getElementById("adult").checked &&
-        document.getElementById("native").checked &&
-        document.getElementById("education").checked)
            this.setStatus(Page.Status.ENDED);
-        else throw "<br><br>Not all checkboxes where populated, participant can't take part, so experiment will end.";
-   }
+
 </Finish>
