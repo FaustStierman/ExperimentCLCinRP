@@ -54,15 +54,8 @@ public class Exp1 extends ExperimentBuild
 
 class Globals
 {
-int setsCompleted = 0; 
-
-int itemInSet = 1;
-
-String currentSet;
-
 int seed = Tools.getRandomNumber(1, 3); 
 int oefenrondeTeller = 1;
-String currentItem; 
     public Globals(IGraphics graphics) throws Exception
     {
     }
@@ -475,8 +468,9 @@ this.addControl(picture2);
 text9 = new TextControl("text9");
 //text9.setText("");
 //text9.setText(this.globals.allText.get("instr1Text"));
+var temp = this.globals.oefenrondeTeller;
 text9.setText(String.join("\n",
-"Voorbeeld " + String.format("%d",this.globals.oefenrondeTeller),
+"Voorbeeld " + String.format("%d", temp),
 "Match deze kleur met rechts of links"
 ));
 text9.setX(0.5);
@@ -553,88 +547,51 @@ this.addControl(text12);
    }
 }
 
-class Code_preTrail extends Code
+class List_set1 extends UserList
 {
    Globals globals;
-   Code_preTrail(ExperimentBuild experiment, UserList parent, Globals globals)
+
+   List_set1(ExperimentBuild experiment, UserList parent, Globals globals) throws Exception
    {
-      super("preTrail", experiment, parent);
-      this.globals = globals;
-      this.pageParent = this;
-   }
+     super("set1", experiment, parent);
+     this.globals = globals;
+     try
+     {
+        this.setListParent(this);
+this.setRandomization(UserList.Randomization.RANDOM); //RANDOM, SEQUENTIAL
 
-   @Override
-   public void load() throws Exception
-   {
+//this.setListStatus("TEST1");
 
 
-if (Tools.modEquals(this.globals.seed + this.globals.setsCompleted, 3, 0)){
-	this.globals.currentItem = "controle" + String.format("%d", this.globals.itemInSet);
-	
+if(Tools.modEquals(this.globals.seed, 3, 0)){
+	this.loadList("lists/controle.txt");
 }
 
-else if (Tools.modEquals(this.globals.seed + this.globals.setsCompleted, 3, 1)){
-	this.globals.currentItem = "abstract" + String.format("%d", this.globals.itemInSet);
-	
+else if(Tools.modEquals(this.globals.seed, 3, 1)){
+	this.loadList("lists/abstract.txt");
 }
 
-else if (Tools.modEquals(this.globals.seed + this.globals.setsCompleted, 3, 2)){
-	this.globals.currentItem = "iconisch" + String.format("%d", this.globals.itemInSet);
-	
+else if(Tools.modEquals(this.globals.seed, 3, 2)){
+	this.loadList("lists/iconisch.txt");
 }
-   }
-}
-
-class Page_tussenPagina extends Page
-{
-   Globals globals;
-   UserList parent;
-   Page_tussenPagina(ExperimentBuild experiment, UserList parent, Globals globals)
-   {
-      super("tussenPagina", experiment, parent);
-      this.globals = globals;
-      this.parent = parent;
-      this.pageParent = this;
-   }
-
-   @Override
-   public void load() throws Exception
-   {
-this.setDuration(500);
-this.setKeyboard("{SPACE}");
-this.setKeyboardCanEndPage(false);
-this.setMouseDownEnabled(false);
-this.setMouseCanEndPage(false);
-this.setValidClicksOnly(true);
-this.setBackColor(Color.GRAY);
-this.setTransparent(false);
-//
-//PictureControl picture4= new PictureControl("picture4");
-//picture4.setPicture("pics/fixatieKruis.bmp");
-//picture4.setX(0.5);
-//picture4.setY(0.5);
-//picture4.setWidth(0.8);
-//picture4.setHeight(0.8);
-////picture4.setRadius(15);
-//picture4.setXAlign(BaseControl.XAlign.CENTER); //LEFT, CENTER, RIGHT
-//picture4.setYAlign(BaseControl.YAlign.CENTER); //TOP, CENTER, BOTTOM
-//picture4.setScale(PictureControl.Scale.STRETCH_ASPECTRATIO);  //NONE, STRETCH, STRETCH_ASPECTRATIO, WIDTH, HEIGHT
-//picture4.setBorderWidth(0);
-//picture4.setBorderColor(Color.BLUE);
-//picture4.setZOrder(10);
-//picture4.setValidClick(false);
-//this.addControl(picture4);
+this.add(new Page_itemSet1(experiment, this, globals));
+this.add(new Page_tussenPagina1(experiment, this, globals));
+    }
+    catch(Exception ex)
+    {
+       throw ex;
+    }
    }
 }
 
-class Page_testItemN extends Page
+class Page_itemSet1 extends Page
 {
    Globals globals;
    UserList parent;
    PictureControl picture1;
-   Page_testItemN(ExperimentBuild experiment, UserList parent, Globals globals)
+   Page_itemSet1(ExperimentBuild experiment, UserList parent, Globals globals)
    {
-      super("testItemN", experiment, parent);
+      super("itemSet1", experiment, parent);
       this.globals = globals;
       this.parent = parent;
       this.pageParent = this;
@@ -647,13 +604,13 @@ this.setDuration(-1);
 this.setKeyboard("ad{RIGHT}{LEFT}");
 this.setKeyboardCanEndPage(true);
 this.setMouseDownEnabled(false);
-this.setMouseCanEndPage(true);
+this.setMouseCanEndPage(false);
 this.setValidClicksOnly(true);
 this.setBackColor(Color.GRAY);
 this.setTransparent(false);
 
 picture1 = new PictureControl("picture1");
-picture1.setPicture("pics/" + this.globals.currentItem + ".bmp");
+picture1.setPicture("pics/[item].bmp");
 picture1.setX(0.5);
 picture1.setY(0.5);
 picture1.setWidth(0.8);
@@ -670,42 +627,237 @@ this.addControl(picture1);
    }
 }
 
-class Code_postTrail extends Code
+class Page_tussenPagina1 extends Page
 {
    Globals globals;
-   Code_postTrail(ExperimentBuild experiment, UserList parent, Globals globals)
+   UserList parent;
+   Page_tussenPagina1(ExperimentBuild experiment, UserList parent, Globals globals)
    {
-      super("postTrail", experiment, parent);
+      super("tussenPagina1", experiment, parent);
       this.globals = globals;
+      this.parent = parent;
       this.pageParent = this;
    }
 
    @Override
    public void load() throws Exception
    {
-this.globals.itemInSet += 1; 
+this.setDuration(1000);
+this.setKeyboard("{SPACE}");
+this.setKeyboardCanEndPage(true);
+this.setMouseDownEnabled(false);
+this.setMouseCanEndPage(true);
+this.setValidClicksOnly(true);
+this.setBackColor(Color.GRAY);
+this.setTransparent(false);
+   }
+}
 
-if(Tools.equals(this.globals.itemInSet, 8))
+class List_set2 extends UserList
 {
-	//If a set has been completed 
-	this.globals.setsCompleted += 1;
-	this.globals.itemInSet = 1; 
-	
-	if(Tools.modEquals(this.globals.setsCompleted, 3, 0))
-	{
-		// If three trails completed: jump to end 
-		this.jumpTo("einde");
-		this.jumpToEndTrial();
-	}
-	else{
-		this.jumpTo("preTrail");
-	}
+   Globals globals;
+
+   List_set2(ExperimentBuild experiment, UserList parent, Globals globals) throws Exception
+   {
+     super("set2", experiment, parent);
+     this.globals = globals;
+     try
+     {
+        this.setListParent(this);
+this.setRandomization(UserList.Randomization.RANDOM); //RANDOM, SEQUENTIAL
+//this.setListStatus("TEST1");
+
+if(Tools.modEquals(this.globals.seed + 1, 3, 0)){
+	this.loadList("lists/controle.txt");
 }
 
-//Jump to next item
-else{
-	this.jumpTo("preTrail");
+else if(Tools.modEquals(this.globals.seed + 1, 3, 1)){
+	this.loadList("lists/abstract.txt");
 }
+
+else if(Tools.modEquals(this.globals.seed + 1, 3, 2)){
+	this.loadList("lists/iconisch.txt");
+}
+this.add(new Page_itemSet2(experiment, this, globals));
+this.add(new Page_tussenPagina2(experiment, this, globals));
+    }
+    catch(Exception ex)
+    {
+       throw ex;
+    }
+   }
+}
+
+class Page_itemSet2 extends Page
+{
+   Globals globals;
+   UserList parent;
+   PictureControl picture1;
+   Page_itemSet2(ExperimentBuild experiment, UserList parent, Globals globals)
+   {
+      super("itemSet2", experiment, parent);
+      this.globals = globals;
+      this.parent = parent;
+      this.pageParent = this;
+   }
+
+   @Override
+   public void load() throws Exception
+   {
+this.setDuration(-1);
+this.setKeyboard("ad{RIGHT}{LEFT}");
+this.setKeyboardCanEndPage(true);
+this.setMouseDownEnabled(false);
+this.setMouseCanEndPage(false);
+this.setValidClicksOnly(true);
+this.setBackColor(Color.GRAY);
+this.setTransparent(false);
+
+picture1 = new PictureControl("picture1");
+picture1.setPicture("pics/[item].bmp");
+picture1.setX(0.5);
+picture1.setY(0.5);
+picture1.setWidth(0.8);
+picture1.setHeight(0.8);
+//picture1.setRadius(15);
+picture1.setXAlign(BaseControl.XAlign.CENTER); //LEFT, CENTER, RIGHT
+picture1.setYAlign(BaseControl.YAlign.CENTER); //TOP, CENTER, BOTTOM
+picture1.setScale(PictureControl.Scale.STRETCH_ASPECTRATIO);  //NONE, STRETCH, STRETCH_ASPECTRATIO, WIDTH, HEIGHT
+picture1.setBorderWidth(0);
+picture1.setBorderColor(Color.BLUE);
+picture1.setZOrder(10);
+picture1.setValidClick(false);
+this.addControl(picture1);
+   }
+}
+
+class Page_tussenPagina2 extends Page
+{
+   Globals globals;
+   UserList parent;
+   Page_tussenPagina2(ExperimentBuild experiment, UserList parent, Globals globals)
+   {
+      super("tussenPagina2", experiment, parent);
+      this.globals = globals;
+      this.parent = parent;
+      this.pageParent = this;
+   }
+
+   @Override
+   public void load() throws Exception
+   {
+this.setDuration(1000);
+this.setKeyboard("{SPACE}");
+this.setKeyboardCanEndPage(true);
+this.setMouseDownEnabled(false);
+this.setMouseCanEndPage(true);
+this.setValidClicksOnly(true);
+this.setBackColor(Color.GRAY);
+this.setTransparent(false);
+   }
+}
+
+class List_set3 extends UserList
+{
+   Globals globals;
+
+   List_set3(ExperimentBuild experiment, UserList parent, Globals globals) throws Exception
+   {
+     super("set3", experiment, parent);
+     this.globals = globals;
+     try
+     {
+        this.setListParent(this);
+this.setRandomization(UserList.Randomization.RANDOM); //RANDOM, SEQUENTIAL
+//this.setListStatus("TEST1");
+
+if(Tools.modEquals(this.globals.seed + 2, 3, 0)){
+	this.loadList("lists/controle.txt");
+}
+
+else if(Tools.modEquals(this.globals.seed + 2, 3, 1)){
+	this.loadList("lists/abstract.txt");
+}
+
+else if(Tools.modEquals(this.globals.seed + 2, 3, 2)){
+	this.loadList("lists/iconisch.txt");
+}
+this.add(new Page_itemSet3(experiment, this, globals));
+this.add(new Page_tussenPagina3(experiment, this, globals));
+    }
+    catch(Exception ex)
+    {
+       throw ex;
+    }
+   }
+}
+
+class Page_itemSet3 extends Page
+{
+   Globals globals;
+   UserList parent;
+   PictureControl picture1;
+   Page_itemSet3(ExperimentBuild experiment, UserList parent, Globals globals)
+   {
+      super("itemSet3", experiment, parent);
+      this.globals = globals;
+      this.parent = parent;
+      this.pageParent = this;
+   }
+
+   @Override
+   public void load() throws Exception
+   {
+this.setDuration(-1);
+this.setKeyboard("ad{RIGHT}{LEFT}");
+this.setKeyboardCanEndPage(true);
+this.setMouseDownEnabled(false);
+this.setMouseCanEndPage(false);
+this.setValidClicksOnly(true);
+this.setBackColor(Color.GRAY);
+this.setTransparent(false);
+
+picture1 = new PictureControl("picture1");
+picture1.setPicture("pics/[item].bmp");
+picture1.setX(0.5);
+picture1.setY(0.5);
+picture1.setWidth(0.8);
+picture1.setHeight(0.8);
+//picture1.setRadius(15);
+picture1.setXAlign(BaseControl.XAlign.CENTER); //LEFT, CENTER, RIGHT
+picture1.setYAlign(BaseControl.YAlign.CENTER); //TOP, CENTER, BOTTOM
+picture1.setScale(PictureControl.Scale.STRETCH_ASPECTRATIO);  //NONE, STRETCH, STRETCH_ASPECTRATIO, WIDTH, HEIGHT
+picture1.setBorderWidth(0);
+picture1.setBorderColor(Color.BLUE);
+picture1.setZOrder(10);
+picture1.setValidClick(false);
+this.addControl(picture1);
+   }
+}
+
+class Page_tussenPagina3 extends Page
+{
+   Globals globals;
+   UserList parent;
+   Page_tussenPagina3(ExperimentBuild experiment, UserList parent, Globals globals)
+   {
+      super("tussenPagina3", experiment, parent);
+      this.globals = globals;
+      this.parent = parent;
+      this.pageParent = this;
+   }
+
+   @Override
+   public void load() throws Exception
+   {
+this.setDuration(1000);
+this.setKeyboard("{SPACE}");
+this.setKeyboardCanEndPage(true);
+this.setMouseDownEnabled(false);
+this.setMouseCanEndPage(true);
+this.setValidClicksOnly(true);
+this.setBackColor(Color.GRAY);
+this.setTransparent(false);
    }
 }
 
@@ -810,10 +962,9 @@ flow.addList(new List_vragen(this, null, globals));
 flow.addPage(new Page_uitleg(this, null, globals));
 flow.addList(new List_voorbeelden(this, null, globals));
 flow.addPage(new Page_startTrail(this, null, globals));
-flow.addCode(new Code_preTrail(this, null, globals));
-flow.addPage(new Page_tussenPagina(this, null, globals));
-flow.addPage(new Page_testItemN(this, null, globals));
-flow.addCode(new Code_postTrail(this, null, globals));
+flow.addList(new List_set1(this, null, globals));
+flow.addList(new List_set2(this, null, globals));
+flow.addList(new List_set3(this, null, globals));
 flow.addPage(new Page_einde(this, null, globals));
 }
 

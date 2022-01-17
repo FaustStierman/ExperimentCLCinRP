@@ -1,6 +1,0 @@
-subject	consent.end	consent.endType	consent.keyPressed	consent.offset	consent.onset	consent.rt	consent.start	consent.text1.text	ID.end	ID.endType	ID.keyPressed	ID.offset	ID.onset	ID.rt	ID.start	ID.text2.text	list3.Answer1	list3.Answer2	list3.Answer3	list3.Answer4	list3.Count	list3.Feedback	list3.fileName	list3.index	list3.page4.end	list3.page4.endType	list3.page4.keyPressed	list3.page4.multiSelection2.selection1	list3.page4.offset	list3.page4.onset	list3.page4.rt	list3.page4.start	list3.Question	list3.SubmitText	list3.Type	uitleg.end	uitleg.endType	uitleg.keyPressed	uitleg.offset	uitleg.onset	uitleg.picture3.picture	uitleg.rt	uitleg.start	uitleg.text6.text	
-9									5330	KEYPRESSED	{SPACE}	5329	3795	1534	3784	ID																													
-9	5818	KEYPRESSED	{SPACE}	5817	5332	485	5330	Consent																																					
-9																	ja	nee			2	1000	lists/vragen.txt	1	20020	KEYPRESSED	{SPACE}		18997	5825	13172	5818	Ben je kleurenblind?	Volgende	RadioButton										
-9																	man	vrouw	anders	zeg ik liever niet	4	1000		2	27310	KEYPRESSED	{SPACE}		26302	20024	6278	20021	Wat is  je gender?	Volgende	RadioButton										
-9																																				36128	KEYPRESSED	{SPACE}	36128	27321	pics/voorbeeld1.bmp	8807	27310	Ons onderzoek g...	

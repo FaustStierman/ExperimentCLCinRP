@@ -1,3 +1,0 @@
-subject	consent.end	consent.endType	consent.mouseClicked	consent.offset	consent.onset	consent.rt	consent.start	vragen.Answer1	vragen.Answer2	vragen.Answer3	vragen.Answer4	vragen.Count	vragen.Feedback	vragen.fileName	vragen.index	vragen.Question	vragen.SubmitText	vragen.toonVragen.end	vragen.toonVragen.endType	vragen.toonVragen.mouseClicked	vragen.toonVragen.multiSelection1.selection1	vragen.toonVragen.offset	vragen.toonVragen.onset	vragen.toonVragen.rt	vragen.toonVragen.selected	vragen.toonVragen.start	vragen.Type	
-9	3783	MOUSECLICKED	[1]	3783	3109	674	3089																					
-9								ja	nee			2	1000	lists/vragen.txt	1	Ben je kleurenblind?		8319	MOUSECLICKED	[1]	2	7297	3801	3496	multiSelection1	3784	RadioButton	

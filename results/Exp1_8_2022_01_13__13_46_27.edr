@@ -1,9 +1,0 @@
-subject	consent.end	consent.endType	consent.keyPressed	consent.offset	consent.onset	consent.rt	consent.start	consent.text1.text	geslacht.end	geslacht.endType	geslacht.keyPressed	geslacht.offset	geslacht.onset	geslacht.rt	geslacht.start	geslacht.text3.text	ID.end	ID.endType	ID.keyPressed	ID.offset	ID.onset	ID.rt	ID.start	ID.text2.text	kleurenblind.end	kleurenblind.endType	kleurenblind.keyPressed	kleurenblind.offset	kleurenblind.onset	kleurenblind.rt	kleurenblind.start	kleurenblind.text5.text	oefenvoorbeeld.end	oefenvoorbeeld.endType	oefenvoorbeeld.keyPressed	oefenvoorbeeld.offset	oefenvoorbeeld.onset	oefenvoorbeeld.rt	oefenvoorbeeld.start	oefenvoorbeeld.text7.text	preTrail.end	preTrail.offset	preTrail.onset	preTrail.start	uitleg.end	uitleg.endType	uitleg.keyPressed	uitleg.offset	uitleg.onset	uitleg.rt	uitleg.start	uitleg.text6.text	visie.end	visie.endType	visie.keyPressed	visie.offset	visie.onset	visie.rt	visie.start	visie.text4.text	
-8																	4471	KEYPRESSED	{SPACE}	4470	3511	959	3494																																						
-8	4882	KEYPRESSED	{SPACE}	4882	4477	405	4471																																																						
-8									5239	KEYPRESSED	{SPACE}	5239	4893	346	4882																																														
-8																																																					5618	KEYPRESSED	{SPACE}	5618	5243	375	5239		
-8																									6043	KEYPRESSED	{SPACE}	6043	5627	416	5618																														
-8																																													6438	KEYPRESSED	{SPACE}	6438	6060	378	6043										
-8																																	6844	KEYPRESSED	{SPACE}	6844	6443	401	6438																						
-8																																									6844	6844	6844	6844																	

@@ -1,4 +1,0 @@
-subject	uitleg.end	uitleg.endType	uitleg.keyPressed	uitleg.offset	uitleg.onset	uitleg.picture5.picture	uitleg.rt	uitleg.start	vragen.Answer1	vragen.Answer2	vragen.Answer3	vragen.Answer4	vragen.Count	vragen.Feedback	vragen.fileName	vragen.index	vragen.Question	vragen.SubmitText	vragen.toonVragen.end	vragen.toonVragen.endType	vragen.toonVragen.keyPressed	vragen.toonVragen.multiSelection2.selection1	vragen.toonVragen.offset	vragen.toonVragen.onset	vragen.toonVragen.rt	vragen.toonVragen.start	vragen.Type	
-9									ja	nee			2	1000	lists/vragen.txt	1	Ben je kleurenblind?	Volgende	10860	KEYPRESSED	{SPACE}		9847	3365	6482	3353	RadioButton	
-9									man	vrouw	anders	zeg ik liever niet	4	1000		2	Wat is  je gender?	Volgende	15096	KEYPRESSED	{SPACE}		14094	10864	3230	10861	RadioButton	
-9	19285	KEYPRESSED	{SPACE}	19284	15107	pics/uitleg.png	4177	15097																				
