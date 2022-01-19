@@ -490,7 +490,7 @@ this.text9= new TextControl("text9");
 //this.text9.setText(this.globals.allText.get("instr1Text"));
 var temp = this.globals.oefenrondeTeller;
 this.text9.setText(String.join("\n",
-"Voorbeeld " + this.globals.oefenrondeTeller.toString(),
+"Voorbeeld " + String.format("%d", temp),
 "Match deze kleur met rechts of links"
 ));
 this.text9.setX(0.5);
