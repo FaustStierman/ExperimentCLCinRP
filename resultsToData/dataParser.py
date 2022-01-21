@@ -59,7 +59,7 @@ def parseFile(data, fileName):
         'controle8':1
     }
     genderMap = {'1': 'M', '2' : 'F', '3': 'NULL', '4':'NULL'}
-    inputMap = {'{RIGHT}': 'R','a':'R','{LEFT}':'L', 'd':'L'}
+    inputMap = {'{ARROWRIGHT}': 'R','a':'R','{ARROWLEFT}':'L', 'd':'L'}
     
     file = open(fileName)
     
@@ -67,6 +67,9 @@ def parseFile(data, fileName):
     
     for line in file:
         temp.append(line.split(','))
+
+    if len(temp) != 34:
+        return data
 
     ID = temp[1][0]
     gender = genderMap[temp[3][20]]
@@ -92,9 +95,7 @@ for line in data:
 
     newFile.write(','.join(line) + '\n')
 
-newFile.close()    
-
-print(data)
+newFile.close()
 
 
 # In[ ]:
