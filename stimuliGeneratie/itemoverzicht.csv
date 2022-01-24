@@ -1,0 +1,25 @@
+conditie,vorm,congruente kleur,incongruent,referentiekleur,congruentie 
+iconisch1,kers,#ff0000,#0000ff,#9f6060,1
+iconisch2,tomaat,#ff0000,#9900ff,#9f6060,1
+iconisch3,banaan,#ffff00,#ff0000,#9c9f60,1
+iconisch4,blad,#00ff00,#0000ff,#7d9f60,1
+iconisch5,avocado,#00ff00,#9900ff,#60009c,0
+iconisch6,appel,#ff0000,#0000ff,#60609f,0
+iconisch7,wortel,#ff9900,#00ff00,#7d9f60,0
+iconisch8,citroen,#ffff00,#00ffff,#609f9f,0
+abstract1,cirkel,#ff0000,#00ff00,#7d9f60,0
+abstract2,driehoek,#ff0000,#00ffff,#608f9f,0
+abstract3,vierkant,#0000ff,#ff00ff,#60709f,1
+abstract4,pentagon,#ffff00,#ff0000,#8f9f60,1
+abstract5,ovaal,#ff9900,#ff0000,#9f8660,0
+abstract6,pacman,#ffff00,#ff00ff,#8f9f60,0
+abstract7,parallelogram,#0000ff,#9900ff,#60709f,1
+abstract8,octagon,#0000ff,#ff9900,#60709f,1
+controle1,vierkant1,#0000ff,#ff9900,#9f8660,0
+controle2,vierkant2,#00ff00,#ff0000,#9f6060,0
+controle3,vierkant3,#ffff00,#9900ff,#60009c,0
+controle4,vierkant4,#ff9900,#0000ff,#60709f,0
+controle5 ,vierkant5,#ff0000,#00ff00,#9f6060,1
+controle6 ,vierkant6,#9900ff,#ffff00,#9f609f,1
+controle7,vierkant7,#00ffff,#ff00ff,#609f9f,1
+controle8 ,vierkant8,#ff00ff,#00ffff,#9f609f,1

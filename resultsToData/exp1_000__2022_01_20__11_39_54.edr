@@ -1,0 +1,3 @@
+﻿subject,Kleurenblind,Nietkleurenblind.start,Nietkleurenblind.onset,Nietkleurenblind.offset,Nietkleurenblind.end,consent.start,consent.onset,consent.offset,consent.end,consent.rt,consent.endType,consent.declined
+000,Nee,5802,5802,5802,5802,,,,,,,
+000,Nee,,,,,5802,5849,19691,19696,13842,MouseClicked,true
